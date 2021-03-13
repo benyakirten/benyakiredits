@@ -17,7 +17,8 @@
                 // Theme only allows one submenu for top bar
                 wp_nav_menu(array(
                     'theme_location' => 'header_menu_location',
-                    'depth' => 2
+                    'depth' => 2,
+                    'container_class' => 'menu-header-menu-container'
                 ));
             ?>
             <div class="navigation__searchbar">

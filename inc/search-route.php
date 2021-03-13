@@ -23,7 +23,8 @@ function sort_blog_search_results($data) {
             'book',
             'post',
             'project',
-            'shortstory'
+            'shortstory',
+            'page'
         ),
         's' => $q
     ));

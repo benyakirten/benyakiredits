@@ -28,10 +28,6 @@ function alignFooterPosition () {
     const nav = document.querySelector(".navigation");
     const navBottom = nav.getClientRects()['0'].bottom;
 
-    console.log(footerBottom);
-    console.log(navBottom);
-    console.log(availHeight);
-
     if (footerBottom < availHeight && navBottom > 0) footer.classList.add("cling-to-bottom");
 }
 

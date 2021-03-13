@@ -350,7 +350,7 @@ img {
 .generic-container {
   position: relative;
   margin: 5rem 8rem;
-  padding: 2rem 3rem;
+  padding: 2rem 5rem;
   border-radius: 3rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
   background-color: #fff;
@@ -911,9 +911,11 @@ img {
   font-size: 1.8rem;
   z-index: 2;
 }
+.navigation .menu-primary-menu-container,
 .navigation .menu-header-menu-container {
   height: 100%;
 }
+.navigation .menu-primary-menu-container .menu,
 .navigation .menu-header-menu-container .menu {
   font-size: 1.8rem;
   display: flex;
@@ -922,10 +924,12 @@ img {
   list-style: none;
 }
 @media only screen and (max-width: 37.5em) {
-  .navigation .menu-header-menu-container .menu {
+  .navigation .menu-primary-menu-container .menu,
+.navigation .menu-header-menu-container .menu {
     font-size: 1.2rem;
   }
 }
+.navigation .menu-primary-menu-container .menu .menu-item,
 .navigation .menu-header-menu-container .menu .menu-item {
   text-decoration: none;
   padding: 0.5rem 4rem;
@@ -934,27 +938,33 @@ img {
   position: relative;
 }
 @media only screen and (max-width: 25em) {
-  .navigation .menu-header-menu-container .menu .menu-item {
+  .navigation .menu-primary-menu-container .menu .menu-item,
+.navigation .menu-header-menu-container .menu .menu-item {
     font-size: 1.2rem;
   }
 }
 @media only screen and (max-width: 37.5em) {
-  .navigation .menu-header-menu-container .menu .menu-item {
+  .navigation .menu-primary-menu-container .menu .menu-item,
+.navigation .menu-header-menu-container .menu .menu-item {
     padding: 1rem;
   }
 }
+.navigation .menu-primary-menu-container .menu .menu-item:hover,
 .navigation .menu-header-menu-container .menu .menu-item:hover {
   color: #fcf8ec;
   background-color: #484018;
 }
+.navigation .menu-primary-menu-container .menu .menu-item:hover > .sub-menu,
 .navigation .menu-header-menu-container .menu .menu-item:hover > .sub-menu {
   transform: scaleY(1);
 }
 @media only screen and (hover: none) {
-  .navigation .menu-header-menu-container .menu .menu-item:hover > .sub-menu {
+  .navigation .menu-primary-menu-container .menu .menu-item:hover > .sub-menu,
+.navigation .menu-header-menu-container .menu .menu-item:hover > .sub-menu {
     transform: scaleY(0);
   }
 }
+.navigation .menu-primary-menu-container .menu .menu-item .sub-menu,
 .navigation .menu-header-menu-container .menu .menu-item .sub-menu {
   transform-origin: top;
   transform: scaleY(0);
@@ -968,6 +978,7 @@ img {
   background-color: #484018;
   z-index: 2;
 }
+.navigation .menu-primary-menu-container .menu .menu-item .sub-menu .menu-item,
 .navigation .menu-header-menu-container .menu .menu-item .sub-menu .menu-item {
   color: #484018;
   background-color: #fcf8ec;
@@ -975,31 +986,38 @@ img {
   width: 100%;
   padding: 0 1rem;
 }
+.navigation .menu-primary-menu-container .menu .menu-item .sub-menu .menu-item:hover,
 .navigation .menu-header-menu-container .menu .menu-item .sub-menu .menu-item:hover {
   color: #fcf8ec;
   background-color: #484018;
 }
+.navigation .menu-primary-menu-container .menu .current-menu-item,
 .navigation .menu-header-menu-container .menu .current-menu-item {
   color: #fcf8ec;
   background-color: #484018;
 }
+.navigation .menu-primary-menu-container .menu .current-menu-item:hover,
 .navigation .menu-header-menu-container .menu .current-menu-item:hover {
   color: #484018;
   background-color: #fcf8ec;
 }
+.navigation .menu-primary-menu-container .menu .menu-item-has-children::after,
 .navigation .menu-header-menu-container .menu .menu-item-has-children::after {
   content: "▼";
 }
 @media only screen and (max-width: 56.25em) {
-  .navigation .menu-header-menu-container .menu .menu-item-has-children::after {
+  .navigation .menu-primary-menu-container .menu .menu-item-has-children::after,
+.navigation .menu-header-menu-container .menu .menu-item-has-children::after {
     content: "";
   }
 }
 @media only screen and (hover: none) {
-  .navigation .menu-header-menu-container .menu .menu-item-has-children::after {
+  .navigation .menu-primary-menu-container .menu .menu-item-has-children::after,
+.navigation .menu-header-menu-container .menu .menu-item-has-children::after {
     content: "";
   }
 }
+.navigation .menu-primary-menu-container .menu .menu-item-has-children:hover,
 .navigation .menu-header-menu-container .menu .menu-item-has-children:hover {
   color: #fcf8ec;
   background-color: #484018;
@@ -1429,9 +1447,7 @@ img {
 .portfolio__card__links {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  margin-bottom: 8rem;
+  margin: 0 auto 8rem;
   width: 90%;
   height: 100%;
 }

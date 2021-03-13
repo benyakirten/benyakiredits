@@ -90,7 +90,7 @@ const formatShortstoryDiv = shortstory => {
 const formatOtherDiv = other => (`
     <div class="search-results__item">
         <a class="search-results__item__link" href="${other.permalink}">
-            <i class="fa fa-crop" aria-hidden="true"></i>
+            <i class="fa fa-crop search-results__item__icon" aria-hidden="true"></i>
             <span>${other.title}</span>
         </a>
     </div>`
@@ -136,6 +136,9 @@ searchBar.addEventListener('keypress', e => {
         window.clearTimeout(searchTimeout);
     }
     searchTimeout = setTimeout(async () => {
+        // Assign the width value for when search results are found
+        width = searchBar.clientWidth;
+        console.log(width);
         // If the searchbar is empty, we stop the function now
         const search = searchBar.value;
         if (!search) {
@@ -165,4 +168,13 @@ searchBar.addEventListener('keyup', e => {
     if (!e.target.value) {
         hideDiv();
     }
+});
+
+// This is a bad solution to the jankiness of clicking on one
+// of the dead spaces in a search result
+searchBar.addEventListener('focusout', () => {
+    setTimeout(() => {
+        hideDiv();
+        searchBar.value = "";
+    }, 200);
 });
