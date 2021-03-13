@@ -1,0 +1,43 @@
+// This is a simple stretch out effect for the main screen
+// It is an animation and not just a transition to allow for
+// use with the CSS animation property
+@keyframes stretch-out {
+    100% {
+        transform: scaleX(1.07);
+    }
+}
+
+// Logo animation: it is in a wheel shape and is suitable
+// for a rotating back and forth motion
+@keyframes rotate-back-and-forth {
+    25% {
+        transform: rotate(-360deg);
+    }
+    50% {
+        transform: rotate(360deg);
+    }
+    75% {
+        transform: rotate(-180deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+// Used for the front-page
+// This is an animation and not a transformation
+// To allow for easier use with the CSS animation property
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+    }
+}
+
+// For the loading spinner
+// This is an animation and not a transformation
+// To allow for easier use with the CSS animation property
+@keyframes roll {
+    100% {
+        transform: rotate(360deg);
+    }
+}

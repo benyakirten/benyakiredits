@@ -1,0 +1,71 @@
+.book {
+    min-height: 50rem;
+
+    &__related-project {
+        border: none;
+    }
+
+    &__purchase {
+        font-size: $font-size-large;
+        text-align: center;
+
+        margin-top: -2rem;
+        margin-bottom: 2rem;
+    }
+
+    &__content {
+        &__figure {
+            margin-right: 2rem;
+
+            // This is assuming a 2x3 width:height ratio
+            width: 20rem;
+            height: 30rem;
+        }
+
+    }
+
+    &__link-span {
+        color: $color-blue-dark;
+        
+        opacity: 0.8;
+        transition: $transition-normal;
+
+        @include respond(tab-port) {
+            opacity: 1;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__text {
+        font-size: $font-size-medium;
+
+        &:hover {
+            transform: scale(1);
+            opacity: 0.8;
+
+            @include respond(tab-port) {
+                opacity: 1;
+            }
+        }
+    }
+    &__info {
+        &__heading {
+            margin: 2rem 0;
+        }
+    }
+
+    &__popup {
+        &__link {
+            &:not(:first-child) {
+                margin-left: 1rem;
+            }
+
+            &:not(:last-child) {
+                border-right: 1px solid $color-brown;
+            }
+        }
+    }
+}

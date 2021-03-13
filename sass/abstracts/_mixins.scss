@@ -1,0 +1,135 @@
+// Element is positioned absolutely in the middle of the screen (50% Y, 50% X)
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Element is positioned absolutely 35% Y, 50% X
+@mixin one-quarter-center {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+}
+
+// Element is positioned absolutely 25% Y, 50% X
+@mixin absolute-quarter {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+}
+
+// Element lifts up several pixels when hovered over and produces box shadow
+// Then goes almost all the way down when clicked
+@mixin lift {
+    transition: $transition-normal;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: $shadow-normal;
+    }
+
+    &:active {
+        transform:translateY(-1px);
+        box-shadow: $shadow-small;
+    }
+}
+
+// Element becomes a flex box with orientation column that stretches all elements inside it
+// Often used for buttons on the back of a card
+@mixin flex-column-stretch {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+// Element will no longer change scaling or opacity on hover
+// NOTE: this does not work on elements that have any other transform properties applied
+@mixin no-hover-effects {
+    opacity: 1;
+    &:hover {
+        transform: scale(1);
+    }
+}
+
+// Element has an ::after pseudo element that, on hover, will shoot out and dissipate
+@mixin flash-out {
+    // Position must be relative so that the after element can be positioned
+    // absolutely in reference to this
+    position: relative;
+    transition: $transition-fast;
+
+    &::after {
+        // All ::before and ::after pseudo elements must have a
+        // content property designated, even if it's empty
+        content: "";
+
+        // Position and size must correspond 100% with hosting element
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+
+        // These properties should be in a separate part
+        // But this mixin is only used for buttons, hence this part
+        border-radius: 1rem;
+        background-color: $color-gray;
+        transition: all .4s;
+
+        // If we have a browser that doesn't support hover (phone or tablet)
+        // Then we don't want the element to be visible.
+        // There are two ways to do this: to describe EVERY hoverable effect/element
+        // with a media query, or to effectively disable the flash-out effect for those screens
+
+        // Downside of my approach: browser will process effect even if it doesn't show
+        // Upside: Simplicity
+        @include respond(no-hover) {
+            background-color: transparent;
+        }
+    }
+
+    &:hover {
+        &::after {
+            transform: scale(1.4, 1.6);
+            opacity: 0;
+        }
+    }
+}
+
+// Media queries
+@mixin respond($breakpoint) {
+    // Most of the categories are self-explanatory, but:
+    // xs-phone is for iPhone SE and similar sizes
+    // no-hover is because browser windows can be small like a phone
+    // but still have hover abilities - for example if the window is shrunk
+    // This is especially relevant for the flash-out property and various cards
+
+    // NOTE: All breakpoints affect anything smaller than them unless specifically defined.
+    // This means that any CSS not marked with this mixin apply to everything unless a SMALLER
+    // media query is specified. This behavior can be reversed if max-width is changed to min-width
+    @if $breakpoint == xs-phone {
+        @media only screen and (max-width: 25em) { @content } // 400px
+    }
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content } // 600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content } // 900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content } // 1200px
+    }
+    @if $breakpoint == bdesk {
+        @media only screen and (min-width: 112.5em) { @content } // 1800px
+    }
+    @if $breakpoint == no-hover {
+        @media only screen and (hover: none) { @content }
+    }
+}

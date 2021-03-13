@@ -1,0 +1,88 @@
+// FRONT PAGE styles
+// for those not described in base/_typography.scss
+.front-page {
+    position: relative;
+    background-size: cover;
+    background-position: top;
+
+    height: 100vh;
+    width: 100%;
+
+    margin-top: 1rem;
+    color: $color-green;
+
+    &__banner {
+        // Most of the elements on the page are described in the banner
+        @include absolute-center;
+
+        width: 95%;
+        height: 35rem;
+        border-radius: 1rem;
+        padding: 0.5rem 2rem;
+        
+        opacity: 0;
+        animation: fade-in 1s forwards linear 0.5s;
+
+        background-color: rgba($color-black, 0.2);
+        box-shadow: $shadow-normal;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include respond(phone) {
+            @include absolute-quarter;
+            background-color: rgba($color-black, 0.4);
+        }
+
+        @include respond(xs-phone) {
+            padding: 0 2rem;
+        }
+
+        &__headline,
+        &__subtitle {
+            text-align: center;
+
+            transition: all 1s;
+            transform-origin: center;
+            animation: stretch-out 1s forwards linear 1s;
+
+            @include respond(xs-phone) {
+                font-size: $font-size-medium;
+            }
+
+            &:hover {
+                transform: scale(1.07);
+            }
+        }
+
+        &__headline {
+            @include respond(xs-phone) {
+                padding: 2rem;
+            }
+        }
+
+        &__subtitle {
+            animation: stretch-out 1s forwards linear 2s;
+        }
+
+        &__container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+
+            @include respond(phone) {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            button {
+                margin: 0 13rem;
+
+                @include respond(phone) {
+                    margin: 2rem;
+                }
+            }
+        }
+    }
+}

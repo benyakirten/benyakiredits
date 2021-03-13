@@ -1,0 +1,109 @@
+// Search-results is an element hanging out right underneath the search bar
+// It has a Y-scaling of 0 until it is called forth by search.js
+.search-results {
+    // Many of the styles are similar to the navigation sub menu style
+    position: absolute;
+    top: 2rem;
+    left: 0;
+
+    background-color: $color-gray;
+    border: 1px solid $color-brown;
+    
+    transition: $transition-normal;
+    transform-origin: top;
+    transform: scaleY(0);
+    
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+
+    // This needs to be on top of everything except the popup
+    z-index: 5;
+
+    // Particular characteristics for the spinner used in the search bar
+    &__spinner {
+        margin: 1rem 2rem;
+    }
+
+    // Multiple results will be loaded - each inside this item div
+    // Displayed in a column
+    &__item {
+        // Each of the items contains a few elements
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+
+        border-bottom: 1px solid $color-black;
+
+        transition: $transition-normal;
+
+        // All other items have the same properties - a project
+        // is slightly different because it has also a grid of technologies and
+        // a github link
+        &--project {
+            justify-content: space-between;
+        }
+
+        &__link {
+            display: flex;
+            align-items: center;
+
+            &--project {
+                width: 25%;
+            }
+        }
+
+        &__github {
+            height: 2rem;
+
+            // To better position it for smaller screens
+            @include respond(phone) {
+                position: absolute;
+                left: 1.5rem;
+            }
+        }
+
+        // The a different font awesome icon introduces each category
+        &__icon {
+            padding-right: 1rem;
+        }
+    
+        &__img {
+            width: 2rem;
+            height: 3rem;
+
+            border-radius: 0.5rem;
+        }
+
+        &__title {
+            margin-right: 1rem;
+        }
+
+        &__grid {
+            height: 100%;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 0.5rem;
+
+            @include respond(phone) {
+                display: none;
+            }
+
+            &__img {
+                height: 1rem;
+                width: 1rem;
+                border-radius: 0;
+            }
+        }
+
+        &:hover {
+            background-color: $color-brown;
+            color: $color-gray;
+        }
+    }
+
+    &__empty {
+        padding: 0 1rem;
+    }
+}

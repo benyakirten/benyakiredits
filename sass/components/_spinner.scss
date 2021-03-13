@@ -1,0 +1,24 @@
+// A simple spinner to use for any dynamically loaded properties
+.spinner {
+    
+    height: 2rem;
+    width: 2rem;
+
+    border: 2px solid $color-gray;
+    border-top: 2px solid $color-brown;
+    border-radius: 50%;
+    
+    // This gives it a bit of a slow-down around beginning/ending
+    animation: roll 1s infinite ease-out;
+
+    // Alternate the colors
+    &--inverted {
+        border: 2px solid $color-brown;
+        border-top: 2px solid $color-gray;
+    }
+
+    // If there needs to be a static version fot he 
+    &__loaded {
+        animation: none;
+    }
+}

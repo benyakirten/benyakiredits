@@ -1,0 +1,24 @@
+* What is this?
+A custom WordPress theme made for my blog. It is meant to highlight my work as both a briter and as a programmer.
+
+* How do I apply this on my own WordPress installation?
+Clone the repository, put all files EXCEPT 1. everything in the the readme-images folder, 2. everything in the sass folder, 3. this file and 4. MUCopy.php in a zip file (or leave them in if space/upload size isn't a concern). Then on your WordPress admin panel go to My Sites -> Design -> Themes, then upload the zip file. You can read a much better description in the [WordPress Docs](https://wordpress.com/support/themes/uploading-setting-up-custom-themes/)
+
+Please note the following:
+> 1. A lot of the design is customized to my particular desires. Notably the header and footer are not particularly scalable. For example, the footer does not support nested menus, and the top menu supports only 1 depth nested menus - additional notes in the SCSS files
+> 3. This theme expects all the files in the images folder
+> 4. The MU plugins includes support for custom types - but is not included in this repo. It is all placed in MUCopy.php. Make sure that on the same folder level as the plugins/themes/upgrades/uploads level you create a folder called mu-plugins then move MUCopy.php into that folder (file can be renamed to anything)
+> 5. This theme expects pages with the following three stubs: about-me, author and portfolio
+> 6. I used the plugin Advanced Custom Fields to add three field groups: Book, Project and Short Story. What fields are used and how are listed in the following screenshots (note that * indicates a required field):
+
+> Book:
+![Book Custom Fields](/readme-images/book.png)
+> Project:
+![Project Custom Fields](/readme-images/project.png)
+> Short Story:
+![Short Story Custom Fields](/readme-images/shortstory.png)
+
+* Addenda
+The theme was written using a WordPress 5.7 installation with PHP 7.3.5 and MySQL version 8.0.16. I am not sure about how much future/backwards compatibility there is. That said, always make sure your plugins are up to date!
+
+I wrote most of the comments in a few hours and am too lazy to make them better/more comprehensive. That said, if any of the functionality is unclear, let me know so I can explain it. There were a handful of CSS features that I used for the first time (such as object fit), and I'm sure there are better ways to write it.

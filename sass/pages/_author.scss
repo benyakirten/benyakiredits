@@ -1,0 +1,244 @@
+// The author pages is separated into five sections:
+// 1. A normal introduction with title
+// 2. Section separator
+// 3. A grid of cards for books
+// 4. Section separator
+// 5. A grid of cards for short stories
+// Section separators are defined in base/_typography.scss
+// Basic functionality in components/_card.scss
+
+// This file decides mostly: what is on the front/back and how to show it
+// NOTE: For a card that depends on hover elements to flip, what to do when
+// the screen does not support hover? 
+// In my case, I decided to hide most elements
+// Another solution would be to extend the length of the card
+// and put the elements from the 'back' side below the front side
+
+.author {
+    &__book {
+        &__card {
+            // SHARED ELEMENT STYLING
+            &__picture {
+                background-size: cover;
+                height: 50rem;
+                background-blend-mode: color;
+                // Clipping plane to hide parts of the retctangle so it isn't a square
+                clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            }
+
+            &__title {
+                position: absolute;
+                top: 12rem;
+                right: 0;
+
+                color: $color-white;
+                background-color: rgba($color-orange-medium, .4);
+            }
+    
+            &__released {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+        
+                font-size: $font-size-large;
+                color: $color-white;
+
+                @include respond(no-hover) {
+                    display: none;
+                }
+            }
+    
+            &__summary {
+                margin: 2rem 1rem;
+                padding: 1rem 1rem;
+                border-bottom: 1px solid $color-white;
+
+                @include respond(no-hover) {
+                    display: none;
+                }
+    
+                &__text {
+                    padding-left: 2rem;
+                    letter-spacing: 1px;
+                    line-height: 1.4;
+                    font-weight: 100;
+                    font-size: $font-size-large;
+                    text-align: left;
+    
+                    color: $color-brown;
+    
+                    transform-origin: center;
+                    opacity: 1;
+
+                    @include respond(no-hover) {
+                        display: none;
+                    }
+    
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+    
+            &__more-details {
+                @include flex-column-stretch;
+    
+                margin: 0 auto;
+                margin-bottom: 4rem;
+                width: 90%;
+                height: 100%;
+
+                @include respond(no-hover) {
+                    position: absolute;
+
+                    bottom: 0;
+                    right: 0;
+                    width: auto;
+                    height: auto;
+                    margin: 0;
+                }
+            }
+            
+            &__purchase-links {
+                @include flex-column-stretch;
+    
+                position: absolute;
+                bottom: 0;
+                left: 0;
+    
+                margin: 2rem 0;
+                width: 100%;
+                transform: scaleX(0.9);
+
+                @include respond(no-hover) {
+                    display: none;
+                }
+            }
+        
+            &__btn {
+                margin-bottom: 2rem;
+                padding: 1rem;
+                width: 100%;
+
+                @include respond(no-hover) {
+                    background: transparent;
+                    letter-spacing: 2px;
+                }
+            }
+    
+            // FRONT SIDE STYLING
+            &--front {
+                background: radial-gradient(
+                    $color-blue-medium,
+                    $color-blue-dark
+                );
+            }
+        
+        
+            // BACK SIDE STYLING
+            &--back {
+                background: linear-gradient(
+                    to right,
+                    $color-gray,
+                    $color-tan
+                );
+                
+                @include respond(no-hover) {
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    &__shortstory {
+        &__card {
+            // SHARED ELEMENT STYLING
+            &__summary {
+                &__title {
+                    text-align: center;
+                    width: 100%;
+                    border-bottom: 1px solid $color-gray;
+
+                    opacity: 1;
+                    padding-bottom: 2rem;
+                }
+
+                &__related-book {
+                    font-size: $font-size-medium;
+
+                    padding: 1rem 2rem;
+                    color: $color-gray;
+                }
+
+                &__text {
+                    text-align: right;
+                    padding: 0 2rem;
+
+                    opacity: 1;
+                    color: $color-gray;
+
+                    @include respond(no-hover) {
+                        display: none;
+                    }
+                }
+            }
+
+            &__picture {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+
+                background-size: cover;
+                height: 20rem;
+                background-blend-mode: color;
+                clip-path: polygon(0 40%, 100% 0, 100% 100%, 0% 100%);
+            }
+
+            &__released {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+
+                color: $color-white;
+                background-color: rgba($color-brown, 0.4);
+                font-size: $font-size-large;
+
+                z-index: 1;
+
+                @include respond(no-hover) {
+                    display: none;
+                }
+            }
+    
+            &__more-details {
+                @include absolute-center;
+                @include flex-column-stretch;
+
+                width: 90%;
+            }
+        
+            &__btn {
+                margin-bottom: 2rem;
+                width: 100%;
+            }
+    
+            // FRONT SIDE STYLING
+            &--front {
+                background: radial-gradient(
+                    $color-blue-medium,
+                    $color-blue-dark
+                );
+            }
+        
+        
+            // BACK SIDE STYLING
+            &--back {
+                background: linear-gradient(30deg, $color-blue-light, $color-forest);
+
+                @include respond(no-hover) {
+                    background: transparent;
+                }
+            }
+        }
+    }
+}

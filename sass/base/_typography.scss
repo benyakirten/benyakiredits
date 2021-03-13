@@ -1,0 +1,150 @@
+// Default body styles
+body {
+    font-family: $font-family-sans;
+    background-color: $color-gray-light-1;
+    line-height: 1.7;
+    font-weight: 400;
+    font-size: $font-size-medium;
+}
+
+// Default header/footer styles
+.navigation,
+.footer {
+    font-family: $font-family-serif;
+    letter-spacing: 2px;
+
+    @include respond(phone) {
+        letter-spacing: 1px;
+    }
+}
+
+.footer {
+    font-size: $font-size-small;
+}
+
+// Main header for the front page
+.heading-primary {
+    display: inline-block;
+    
+    opacity: 1;
+    font-size: $font-size-xxl;
+    font-family: $font-family-serif;
+    letter-spacing: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    
+    // Text is a clipping plane for the underlying gradient
+    // The complicated linear gradient is to make text more
+    // readable on top of the background SVG
+    background-image: linear-gradient(
+        to right,
+        $color-white,
+        $color-tan, 30%,
+        $color-gray, 40%,
+        $color-gray-light-1, 50%,
+        $color-orange-medium, 60%,
+        $color-gray-light-1, 75%,
+        darken($color-tan, 30%) 80%,
+        $color-gray-light-1
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    // Text spacing is occlusive on small screens
+    @include respond(phone) {
+        letter-spacing: 1px;
+    }
+}
+
+// Secondary header for the front page
+.heading-secondary {
+    color: $color-white;
+    font-family: $font-family-sans;
+    font-size: $font-size-xl;
+    font-weight: 400;
+    letter-spacing: 1.2rem;
+    text-transform: uppercase;
+    opacity: 1;
+
+    // Like .heading-primary, the text is a clipping plane for the
+    // background gradient; also, similarly, the gradient is make
+    // it harmonize better with the background svg
+    background-image: linear-gradient(
+        to right,
+        $color-gray,
+        $color-orange-medium 22%,
+        $color-gray 40%,
+        $color-orange-medium 50%,
+        $color-gray
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    @include respond(phone) {
+        letter-spacing: 1px;
+    }
+}
+
+.heading-title {
+    // Standard styling for page title
+    text-align: center;
+    font-weight: 700;
+    font-family: $font-family-serif;
+    letter-spacing: 1rem;
+    opacity: 0.8;
+
+    font-size: $font-size-xl;
+
+    @include respond(phone) {
+        letter-spacing: 1px;
+        opacity: 1;
+    }
+
+    &:hover {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.heading-section {
+    // Standard styling for individual section
+    // Used primarily on page-author.php
+    text-align: center;
+    font-weight: 700;
+    font-family: $font-family-serif;
+    letter-spacing: 1rem;
+    opacity: 0.8;
+
+    font-size: $font-size-xl;
+
+    &:hover {
+        opacity: 1;
+        transform: scale(1);
+    } 
+}
+
+.heading-card {
+    // Standard styling for the main heading on all card elements
+    text-align: right;
+    line-height: 1.1;
+
+    font-size: $font-size-xl;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: $color-white;
+    width: 65%;
+    padding: 1rem 1.5rem;
+}
+
+// Default styles for link
+.title-link,
+.title-link:link,
+.title-link:visited {
+    color: $color-blue-dark;
+    transition: all .4s;
+}

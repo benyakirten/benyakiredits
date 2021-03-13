@@ -1,0 +1,130 @@
+// Boxes nested, usually on a generic container element
+// Both right above the element
+// There are two boxes:
+// 1. Parent-box: No nesting inside of it, just rounded element
+//      with: PARENT LINK | CHILD ITEM
+// 2. Child-box: Element that when hovered over reveals child links, as in:
+//      TOP ITEM LINK
+//          CHILD 1 LINK
+//          CHILD 2 LINK
+//          etc.
+.linkbox {
+    &__parent-box {
+        position: absolute;
+        top: -1.5rem;
+        left: 3rem;
+
+        padding: 0 1rem;
+
+        border-radius: 2rem;
+        color: $color-gray;
+        background-color: $color-brown;
+
+        display: flex;
+
+        @include respond(phone) {
+            top: 0;
+            left: 2rem
+        }
+
+        &--wide {
+            padding: 0 2rem;
+        }
+
+        &__link {
+            border-right: 1px solid $color-gray;
+            padding-right: 1rem;
+
+            opacity: 0.8;
+            transition: all .2s;
+
+            @include respond(no-hover) {
+                opacity: 1;
+            }
+
+            &:hover {
+                opacity: 1;
+                color: $color-white;
+            }
+        }
+
+        &__current {
+            color: $color-tan;
+            padding-left: 1rem;
+        }
+    }
+
+    &__child-box {
+        position: absolute;
+        top: -1.5rem;
+        right: 3rem;
+        padding: 0 1.5rem;
+
+        border-radius: 2rem;
+        color: $color-gray;
+        background-color: $color-brown;
+
+        z-index: 1;
+
+        @include respond(phone) {
+            top: 0;
+        }
+
+        // The child box is completely hidden
+        // for devices that cannot hover.
+        // There are many, other solutions that find a place for it
+        // But I felt they cluttered the screen
+        @include respond(no-hover) {
+            display: none;
+        }
+
+        &--wide {
+            padding: 0 3rem;
+        }
+
+        &:hover > &__list {
+            transform: scaleY(1);
+        }
+
+        &__list {
+            transform-origin: top;
+            transform: scaleY(0);
+            transition: all .4s;
+
+            position: absolute;
+            top: 3rem;
+            left: 1rem;
+            max-width: 100%;
+            min-width: 90%;
+
+            list-style: none;
+            border: 1px solid $color-black;
+            background-color: $color-brown;
+
+            z-index: 1;
+            
+            // Depending on how the nested element is retrieved, multiple different
+            // classes might be applied
+            // NOTE: This theme does not supported nested children of pages/categories
+            &__child,
+            .cat-item,
+            .page_item {
+                padding: 0 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-gray;
+                }
+
+                transition: all .2s;
+                &:hover {
+                    color: $color-orange-light;
+                }
+            }
+
+            .current_page_item,
+            .current-cat {
+                color: $color-tan;
+            }
+        }
+    }
+}

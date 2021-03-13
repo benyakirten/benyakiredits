@@ -1,0 +1,69 @@
+.card {
+    // FUNCTIONALITY
+
+    // Perspective is so that the card looks like it's flipping out towards the user
+    perspective: 130rem;
+    // Relative positioning so it child absolute positions are nested on it
+    position: relative;
+
+    // NOTE: Height must be the same as the &__side child
+    height: 55rem;
+
+    @include respond(phone) {
+        margin: 2rem 0;
+    }
+
+    &__side {
+        // Each side is rooted to the host div
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 55rem;
+        border-radius: $border-radius-standard;
+        box-shadow: $shadow-normal;
+
+        transition: $transition-card;
+        
+        // Overflow: hidden hides some erroneous bits
+        // when the card is flipped over
+        overflow: hidden;
+        // So the back side of the card is hidden when it flips over
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+
+        // Back starts off on the other side
+        &--back {
+            transform: rotateY(-180deg);
+        }
+    }
+
+    // When we hover over it, the front flips to the back
+    // And the back flips the front
+    &:hover &__side--front {
+        transform: rotateY(180deg);
+    }
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+
+    // In the case that a card cannot be hovered, place the back right on top of the front
+    // For further details of what happens, CF the individual author and portfolio pages
+    @include respond(no-hover) {
+        &__side {
+            position: relative;
+            &--back {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: rotateY(0);
+            }
+        }
+
+        // Disable the front rotate effect on hover
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+    }
+}

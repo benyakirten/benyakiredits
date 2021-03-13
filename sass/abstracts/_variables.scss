@@ -1,0 +1,54 @@
+// Colors
+$color-black: #000;
+$color-white: #fff;
+
+$color-gray: #fcf8ec;
+
+$color-gray-light-1: #f7f1e3;
+$color-gray-light-2: #e8eae6;
+$color-gray-medium: #cdd0cb;
+$color-gray-dark: #84817a;
+
+$color-tan: #f4c983;
+$color-forest: #5b6d5b;
+$color-brown: #484018;
+$color-green: #7c9473;
+
+$color-orange-dark: #ff6f3c;
+$color-orange-medium: #ff9a3c;
+$color-orange-light: #ffc93c;
+
+$color-blue-light: #d0e8f2;
+$color-blue-medium: #79a3b1;
+$color-blue-dark: #456268;
+
+$color-other: #008891;
+$color-other-dark: #00587a;
+$color-other-green-light: #ded7b1;
+$color-other-green-medium: #9dab86;
+
+// Font size
+$font-size-small: 1.2rem;
+$font-size-medium: 1.8rem;
+$font-size-large: 2.4rem;
+$font-size-xl: 3.6rem;
+$font-size-xxl: 6rem;
+
+// Font family
+$font-family-sans: 'Shippori Mincho', sans-serif;
+$font-family-serif: 'Poppins', serif;
+
+// Border-radius
+$border-radius-standard: 3rem;
+$border-radius-circle: 50%;
+
+// Box Shadow
+$navigation-shadow: -1px .4rem 2.3rem -.6rem rgba($color-black, 0.77);
+$shadow-normal: 0 2rem 4rem rgba($color-black, 0.4);
+$shadow-small: 0 1rem 2rem rgba($color-black, 0.4);
+
+// Transitions:
+$transition-slow: all .6s;
+$transition-normal: all .4s;
+$transition-fast: all .2s;
+$transition-card: all .8s ease;

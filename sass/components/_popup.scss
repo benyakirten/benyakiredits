@@ -1,0 +1,59 @@
+// Popup is hidden until activated
+// When it is, it flashes out from the middle
+.popup {
+    opacity: 0;
+    visibility: hidden;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    height: 100vh;
+    width: 100%;
+    background-color: rgba($color-black, .8);
+
+    &__content {
+        @include absolute-center;
+
+        background-color: $color-gray;
+        width: 75%;
+        min-height: 15rem;
+
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 1rem;
+
+        overflow: hidden;
+
+        opacity: 0;
+        
+        // To make this popup appear to come out of the middle of the screen
+        // it starts off scaled small then scale it up to the correct proportions
+        // However, we placed it using @include absolute-center, but CSS does
+        // not support multiple transforms on one element, so one transform
+        // must contain all qualities - including the scaling
+        transform: translate(-50%, -50%) scale(.2);
+        transition: $transition-normal .1s;
+    }
+
+    &__heading {
+        margin: 3rem;
+        font-size: $font-size-medium;
+    }
+
+    &__close {
+        position: absolute;
+        top: .2rem;
+        right: 1rem;
+
+        // The close button is actually just a small a element with its text reading ;times
+        font-size: $font-size-large;
+        color: $color-brown;
+
+        cursor: pointer;
+
+        &:hover {
+            color: $color-blue-medium;
+        }
+    }
+}

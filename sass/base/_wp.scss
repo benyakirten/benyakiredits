@@ -1,0 +1,52 @@
+// Wordpress the_content() produces HTML elements
+// that will not have attached classes.
+// We provide some standard styling  for them
+
+// LINKS
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+    transition: all .4s;
+}
+
+// HEADINGS
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    opacity: 0.7;
+    margin: 0.5rem 0;
+    line-height: 2;
+
+    transform-origin: left;
+    transition: $transition-normal;
+
+    @include respond(no-hover) {
+        opacity: 1;
+    }
+
+    @include respond(tab-land) {
+        line-height: 1.5;
+    }
+
+    &:hover {
+        opacity: 1;
+        // Text moves slightly left then expands right
+        transform: scaleX(1.03);
+    }
+}
+
+p {
+    &:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+}
+
+img {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 3rem;
+}

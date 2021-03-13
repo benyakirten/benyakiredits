@@ -1,0 +1,10 @@
+.about-me {
+    &__figure {
+        margin-right: 2rem;
+    }
+    &__img {
+        transform: translateX(-2.5rem);
+        // object-fit maintains the aspect ratio
+        object-fit: contain;
+    }
+}

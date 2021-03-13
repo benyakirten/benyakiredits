@@ -1,0 +1,38 @@
+.btn {
+    // Buttons on this site both lift and flash out
+    @include lift;
+    @include flash-out;
+
+    // Buttons do not make the cursor into a pointer
+    cursor: pointer;
+
+    border: none;
+
+    padding: 2rem;
+    border-radius: 1rem;
+
+    font-size: $font-size-large;
+    font-weight: 700;
+
+    background: linear-gradient(80deg, lighten($color-orange-dark, 30%), lighten($color-orange-medium, 20%), lighten($color-orange-light, 10%));
+    color: $color-brown;
+
+    @include respond(phone) {
+        padding: 1rem;
+    }
+    
+    // Variations
+    &--inverse {
+        background: linear-gradient(80deg, lighten($color-orange-light, 10%), lighten($color-orange-medium, 20%), lighten($color-orange-dark, 30%));
+    }
+
+    &--dark {
+        background: linear-gradient(40deg, $color-blue-dark, $color-blue-medium);
+        color: $color-gray;
+    }
+
+    &--other {
+        background: radial-gradient($color-other, $color-other-dark);
+        color: $color-gray;
+    }
+}

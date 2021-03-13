@@ -1,0 +1,238 @@
+// Navigation is a flexbox that contains all items
+// NOTE: The menu doesn't collapse with a hamburger menu so it doesn't scale with
+// more than 3 links on smaller screens. If you do include 4+ links, I suggest to make them
+// small. The limit for bigger screens is probably 7.
+
+// Also note that there are only two colors used: gray and brown.
+// All color shifts are done with those two
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: $color-gray;
+    height: 3.5rem;
+    width: 100%;
+
+    padding: 0 2rem;
+
+    box-shadow: $navigation-shadow;
+
+    &__logo {
+        margin-top: 1rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        transition: $transition-normal;
+        &:hover {
+            animation: rotate-back-and-forth 7s infinite ease-in-out;
+        }
+    }
+
+    &__link:link,
+    &__link:visited {
+        text-decoration: none;
+        padding: 0 2rem;
+        color: $color-brown;
+        transition: all .5s;
+
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__link:hover {
+        color: $color-gray;
+        background-color: $color-brown;
+        animation: stretch-out 3s forwards ease-in-out;
+    }
+
+    &__links {
+        font-size: $font-size-medium;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__searchbar {
+        display: flex;
+        position: relative; 
+
+        &__form {
+            display: flex;
+
+            width: 100%;
+            border-left: none;
+
+            &__container {
+                display: flex;
+            }
+
+            &__search {
+                width: 15rem;
+
+                margin: auto 0;
+                margin-right: -.5rem;
+                z-index: 1;
+
+                transition: width 0.4s ease-in-out;
+
+                @include respond(xs-phone) {
+                    width: 10rem;
+                }
+
+                &:focus {
+                    color: $color-brown;
+                    outline: none;
+    
+                    // The search bar expands on clicking into it
+                    width: 35rem;
+
+                    // The amount changes depending on the screen
+                    // For phones the bar doesn't expand at all
+                    @include respond(phone) {
+                        width: 25rem;
+                        padding-left: 1rem;
+
+                        @include respond(no-hover) {
+                            @include respond(xs-phone) {
+                                width: 10rem;
+                            }
+                            width: 15rem;
+                        }
+                    }
+                }
+
+                &::placeholder {
+                    color: $color-gray-medium;
+                }
+            }
+
+            &__searchbutton {
+                cursor: pointer;
+                border: none;
+
+                padding: 0 .5rem;
+                background: $color-gray-dark;
+                text-align: center;
+                color: $color-gray;
+                border-radius: 0 .5rem .5rem 0;
+
+                font-size: $font-size-medium;
+                z-index: 2;
+            }
+        }
+    }
+
+    .menu-header-menu-container {
+        height: 100%;
+    
+        .menu {
+            font-size: $font-size-medium;
+            display: flex;
+            align-items: stretch;
+            height: 100%;
+            list-style: none;
+
+            @include respond(phone) {
+                font-size: $font-size-small;
+            }
+    
+            .menu-item {
+                text-decoration: none;
+                padding: 0.5rem 4rem;
+                color: $color-brown;
+                transition: $transition-fast;
+                position: relative;
+
+                @include respond(xs-phone) {
+                    font-size: $font-size-small;
+                }
+
+                @include respond(phone) {
+                    padding: 1rem;
+                }
+
+                &:hover {
+                    color: $color-gray;
+                    background-color: $color-brown;
+                }
+
+                &:hover > .sub-menu {
+                    transform: scaleY(1);
+
+                    @include respond(no-hover) {
+                        transform: scaleY(0);
+                    }
+                }
+
+                .sub-menu {
+                    // This is so sub menus fold out from the top
+                    transform-origin: top;
+                    transform: scaleY(0);
+                    transition: $transition-normal;
+
+                    position: absolute;
+                    top: 3.5rem;
+                    left: 0;
+
+                    min-width: 100%;
+
+                    list-style: none;
+                    border: 1px solid $color-black;
+                    background-color: $color-brown;
+
+                    z-index: 2;
+
+                    .menu-item {
+                        color: $color-brown;
+                        background-color: $color-gray;
+
+                        border-bottom: 1px solid $color-brown;
+
+                        width: 100%;
+                        padding: 0 1rem;
+
+                        &:hover {
+                            color: $color-gray;
+                            background-color: $color-brown;
+                        }
+                    }
+                }
+            }
+
+            .current-menu-item {
+                color: $color-gray;
+                background-color: $color-brown;
+        
+                &:hover {
+                    color: $color-brown;
+                    background-color: $color-gray;
+                }
+            }
+
+            .menu-item-has-children {
+                &::after {
+                    // The dropdown arrow is an ::after pseudoelement
+                    content: "\25BC";
+
+                    @include respond(tab-port) {
+                        // When the screen gets too small, we get rid of it
+                        content: "";
+                    }
+
+                    @include respond(no-hover) {
+                        // Idem with any screen that cannot hover because the dropdown arrow
+                        // implies a hover ability
+                        content: "";
+                    }
+                }
+
+                &:hover {
+                    color: $color-gray;
+                    background-color: $color-brown;
+                }
+            }
+        }
+    }
+}

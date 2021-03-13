@@ -1,0 +1,119 @@
+// Almost all items are placed inside the container as a main or section tag
+.generic-container {
+    // To allow other elements to be placed on top
+    position: relative;
+
+    // Margins from header/footer then padding inside
+    margin: 5rem 8rem;
+    padding: 2rem 3rem;
+
+    border-radius: $border-radius-standard;
+    box-shadow: $shadow-small;
+
+    background-color: $color-white;
+
+    @include respond(tab-land) {
+        margin: 3rem 1rem;
+        padding: 2rem 1rem;
+    }
+
+    @include respond(phone) {
+        margin: 2rem 1rem;
+    }
+
+    &__title {
+        // If the title is in a header element, we want to disable hover effects
+        @include no-hover-effects;
+        
+        @include respond(phone) {
+            margin-top: 3rem;
+        }
+    }
+
+    &__content {
+        @include respond(phone) {
+            margin: 2rem;
+        }
+    }
+    
+    &__subtitle {
+        font-family: $font-family-sans;
+        font-size: $font-size-large;
+        font-weight: 200;
+        letter-spacing: 3px;
+
+        padding: 1rem 2rem;
+    }
+
+    // This could be in project, but it reduces reduplication here
+    &__grid {
+        margin-top: 3rem;
+    
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 30rem));
+        grid-gap: 4rem;
+
+        @include respond(phone) {
+            display: flex;
+            flex-direction: column;
+
+            padding: 0 3rem;
+            margin: 5rem 0;
+        }
+    }
+
+    // For separating sections
+    &__section {
+        margin: 5rem 1rem;
+        background-image: linear-gradient(
+            to bottom right,
+            $color-blue-light,
+            $color-blue-medium
+        );
+        // Element is skewed so all child elements must be
+        // skewed the opposite to appear normal
+        transform: skewX(-12deg);
+        box-shadow: $shadow-small;
+
+        @include respond(phone) {
+            margin: 1rem;
+        }
+
+        &__header {
+            color: $color-black;
+
+            transform: skewX(12deg);
+            // Transform origin may have been set to left if this is a header tag
+            // So we are putting it back at the center
+            transform-origin: center;
+
+            @include respond(phone) {
+                letter-spacing: 1px;
+            }
+
+            &:hover {
+                transform: skewX(12deg) scaleX(1.1);
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+    // Special section for archives
+    &__read-more {
+        color: $color-blue-dark;
+        margin: 1rem 0;
+
+        transition: $transition-normal;
+        opacity: 0.8;
+
+        @include respond(phone) {
+            text-decoration: underline;
+            opacity: 1;
+        }
+
+        &:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+    }
+}

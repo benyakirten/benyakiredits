@@ -1,0 +1,95 @@
+// Footer is a flexbox that displays links
+// NOTE: it is HIGHLY suggested you don't put too many (7+) items in the footer
+// It can look a bit bad with the copyright notice, especially on smaller screens
+
+.footer {
+    height: 3rem;
+    width: 100%;
+    background-color: $color-brown;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+
+    // To prevent the footer placement script from messing up
+    // on footers with too many items so the copyright notice
+    // gets split into two lines
+    overflow: hidden;
+
+    @include respond(phone) {
+        padding: 0;
+        flex-direction: column;
+    }
+
+    // The footer has two extra empty div elements
+    // So the flexbox puts the menu at center and the copytright notice to the right
+    // This gets rid of them on smaller screens
+    &__extra {
+        @include respond(xs-phone) {
+            display: none;
+        }
+    }
+
+    @include respond(phone) {
+        font-size: 0.8rem;
+    }
+
+    .menu-footer-menu-container {
+        height: 100%;
+    
+        .menu {
+            font-size: $font-size-medium;
+            display: flex;
+            align-items: stretch;
+            height: 100%;
+            list-style: none;
+
+            flex-wrap: wrap;
+    
+            .menu-item {
+                text-decoration: none;
+                padding: 0 2rem;
+                color: $color-gray;
+                transition: $transition-fast;
+        
+                display: flex;
+                align-items: center;
+
+                @include respond(phone) {
+                    padding: 0 .5rem;
+                }
+
+                &:hover {
+                    color: $color-brown;
+                    background-color: $color-gray;
+                    animation: stretch-out 3s forwards ease-in-out;
+                }
+            }
+
+            a {
+                @include respond(xs-phone) {
+                    font-size: $font-size-small;
+                }
+            }
+
+            .current-menu-item {
+                background-color: $color-gray;
+                color: $color-brown;
+        
+                &:hover {
+                    background-color: $color-brown;
+                    color: $color-gray;
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        color: $color-gray;
+
+        @include respond(phone) {
+            font-size: .5rem;
+        }
+    }
+}

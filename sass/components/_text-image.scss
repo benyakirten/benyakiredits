@@ -1,0 +1,76 @@
+// A text-image item is an image that blurs out and has text come up when hovered over
+// This is accomplished by having a figure nest the text and the image
+.text-image {
+    // When the root element is hovered, two things happen:
+    // 1. The figure caption floats up from below to the middle of the image
+    // 2. The image blurs out and reduces brightness to make the text more visible
+    &:hover &__figure__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover &__figure__img {
+        filter: blur(0.3rem) brightness(80%) contrast(70%);
+    }
+
+    &__figure {
+        // The figure must be floated so that the text plays around it nicely
+        height: 15rem;
+        width: 15rem;
+        float: left;
+
+        // Position is relative so the text can be rooted to it with position: absolute
+        position: relative;
+        // Overflow: hidden hides the text that's hiding out at the bottom of the figure
+        // until it's hovered
+        overflow: hidden;
+
+        // If it doesn't support clip-path the border-radius defaults to 50%
+        border-radius: 50%;
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            clip-path: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+
+            -webkit-clip-path: circle(50% at 50% 50%);
+            -webkit-shape-outside: circle(50% at 50% 50%);
+
+            border-radius: none;
+        }
+
+        &--square {
+            // Though not exactly a square, this is much closer to one
+            border-radius: $border-radius-standard;
+            @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                shape-outside: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+                -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                -webkit-shape-outside: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+                border-radius: none;
+            }
+        }
+
+        &__img {
+            height: 100%;
+            // Hide the text behind it
+            backface-visibility: hidden;
+            transition: all 0.5s;
+        }
+
+        &__caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 20%);
+            color: $color-white;
+            text-transform: uppercase;
+            font-family: $font-family-sans;
+            font-size: $font-size-medium;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.5s;
+            backface-visibility: hidden;
+        }
+    }
+}
