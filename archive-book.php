@@ -92,14 +92,15 @@ while (have_posts()) :
             <?php
                 echo has_excerpt()
                     ? get_the_excerpt()
-                    : wp_trim_words(get_the_content(), 30);
+                    : wp_trim_words(get_the_content(), 50);
             ?>
             <div class="generic-container__read-more">
                 <a href="<?php the_permalink(); ?>">Read more &rarr;</a>
             </div>
         </div>
     </section>
-<?php
-endwhile;
-get_footer();
-?>
+<?php endwhile; ?>
+<aside class="generic-container archive-pagination">
+    <?php echo paginate_links(); ?>
+</aside>
+<?php get_footer(); ?>

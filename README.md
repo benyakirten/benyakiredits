@@ -22,3 +22,7 @@ Please note the following:
 The theme was written using a WordPress 5.7 installation with PHP 7.3.5 and MySQL version 8.0.16. I am not sure about how much future/backwards compatibility there is. That said, always make sure your plugins are up to date!
 
 I wrote most of the comments in a few hours and am too lazy to make them better/more comprehensive. That said, if any of the functionality is unclear, let me know so I can explain it. There were a handful of CSS features that I used for the first time (such as object fit), and I'm sure there are better ways to write it.
+
+* CHANGELOG
+3/13/2021: Put single line statements into single line instead of spreading across multiple lines. Added some redundancies to help with Bluehost differences between it and local environment. Fixed custom field variable reading in template-parts/content-book.php
+3/13/2021-2: Uh, it turns out I forgot to paginate links in the archive pages. I completely overlooked it, but it was a quick fix. I might have to push a few other small changes in the coming days.

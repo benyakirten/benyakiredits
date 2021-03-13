@@ -23,9 +23,7 @@
                         <img alt="<?php echo $tech; ?>" src="<?php echo $link_icon ?>">
                         <span class="portfolio__card__details__technologies"><?php echo $full_tech; ?></span>
                     </li>
-                <?php
-                    endforeach;
-                ?>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
@@ -51,12 +49,14 @@
             ?>
                 <a href="<?php echo $main_link ?>">
                     <button class="btn btn--dark portfolio__card__btn portfolio__card__links__other-btn">
-                        On <?php echo get_field('hosted_on') ?>
+                        On <?php
+                            echo get_field('hosted_on')
+                                ? get_field('hosted_on')
+                                : $main_link;
+                            ?>
                     </button>
                 </a>
-            <?php
-                endif;
-            ?>
+            <?php endif; ?>
             <a href="<?php echo the_permalink(); ?>">
                 <button class="btn btn--dark portfolio__card__btn">
                     View Project Details

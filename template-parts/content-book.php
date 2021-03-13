@@ -8,7 +8,7 @@
     }
     // CF single-book.php for explanation of these fields
     $link_urls = explode(', ', get_field('purchase_links'));
-    $link_names = explode(', ', get_field('link_names'));
+    $link_names = explode(', ', get_field('purchase_links_names'));
     $links_length = range(0, count($link_urls) - 1);
     
     $today = date('mdY');
@@ -55,9 +55,7 @@
             </a>
         </div>
         <div class="author__book__card__purchase-links">
-            <?php
-                foreach($links_length as $index):
-            ?>
+            <?php foreach($links_length as $index): ?>
                 <a href="<?php echo $link_urls[$index] ?>">
                     <button class="btn btn--dark author__book__card__btn">
                         <?php
@@ -67,9 +65,7 @@
                         ?>
                     </button>
                 </a>
-            <?php
-                endforeach;
-            ?>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

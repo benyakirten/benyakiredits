@@ -55,7 +55,8 @@ while (have_posts()) :
             </div>
         </div>
     </section>
-<?php
-endwhile;
-get_footer();
-?>
+<?php endwhile; ?>
+<aside class="generic-container archive-pagination">
+    <?php echo paginate_links(); ?>
+</aside>
+<?php get_footer(); ?>

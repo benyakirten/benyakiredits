@@ -240,6 +240,26 @@ img {
   border-radius: 3rem;
 }
 
+.archive-pagination {
+  text-align: center;
+}
+.archive-pagination .page-numbers {
+  color: #484018;
+  font-size: 2.4rem;
+  padding: 0 0.5rem;
+  opacity: 0.8;
+  transition: all 0.4s;
+}
+@media only screen and (hover: none) {
+  .archive-pagination .page-numbers {
+    opacity: 1;
+  }
+}
+.archive-pagination .page-numbers:hover {
+  opacity: 1;
+  color: #000;
+}
+
 .btn {
   transition: all 0.4s;
   position: relative;

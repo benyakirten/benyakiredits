@@ -53,9 +53,7 @@
                     <?php echo get_the_title(); ?>
                 </button>
             </a>
-            <?php
-                if ($related_book):
-            ?>
+            <?php if ($related_book): ?>
                 <a href="<?php the_permalink($related_book->ID); ?>">
                     <button class="btn btn--other author__shortstory__card__btn">
                         <?php echo $related_book->post_title ?>

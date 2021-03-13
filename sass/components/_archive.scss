@@ -1,0 +1,23 @@
+.archive-pagination {
+    text-align: center;
+    
+    .page-numbers {
+        color: $color-brown;
+        font-size: $font-size-large;
+
+        padding: 0 .5rem;
+
+        opacity: .8;
+        transition: $transition-normal;
+
+        @include respond(no-hover) {
+            // Element should be clear without needing to hover on no-hover devices
+            opacity: 1;
+        }
+
+        &:hover {
+            opacity: 1;
+            color: $color-black;
+        }
+    }
+}
