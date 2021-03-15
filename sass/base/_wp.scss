@@ -50,3 +50,24 @@ img {
     width: 20rem;
     border-radius: 3rem;
 }
+
+ul,
+ol {
+    list-style: none;
+
+    li::before {
+        content: "\27A4";
+        padding-right: 1rem;
+    }
+}
+
+ul[data-sharing-events-added],
+ul.linkbox__child-box__list,
+ul.menu,
+ul.sub-menu {
+    li::before {
+        content: "";
+        padding-right: 0;
+    }
+}
+

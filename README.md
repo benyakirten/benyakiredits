@@ -26,3 +26,4 @@ I wrote most of the comments in a few hours and am too lazy to make them better/
 * CHANGELOG
 3/13/2021: Put single line statements into single line instead of spreading across multiple lines. Added some redundancies to help with Bluehost differences between it and local environment. Fixed custom field variable reading in template-parts/content-book.php
 3/13/2021-2: Uh, it turns out I forgot to paginate links in the archive pages. I completely overlooked it, but it was a quick fix. I might have to push a few other small changes in the coming days.
+3/15/2021: I changed the ::before pseudo element for ul and ol. Turns out the nav menus, linkbox child menus and jetpack's social menu icons are lists too.

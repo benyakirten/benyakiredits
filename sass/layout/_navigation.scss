@@ -134,10 +134,6 @@
             align-items: stretch;
             height: 100%;
             list-style: none;
-
-            @include respond(phone) {
-                font-size: $font-size-small;
-            }
     
             .menu-item {
                 text-decoration: none;

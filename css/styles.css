@@ -240,6 +240,24 @@ img {
   border-radius: 3rem;
 }
 
+ul,
+ol {
+  list-style: none;
+}
+ul li::before,
+ol li::before {
+  content: "➤";
+  padding-right: 1rem;
+}
+
+ul[data-sharing-events-added] li::before,
+ul.linkbox__child-box__list li::before,
+ul.menu li::before,
+ul.sub-menu li::before {
+  content: "";
+  padding-right: 0;
+}
+
 .archive-pagination {
   text-align: center;
 }
@@ -942,12 +960,6 @@ img {
   align-items: stretch;
   height: 100%;
   list-style: none;
-}
-@media only screen and (max-width: 37.5em) {
-  .navigation .menu-primary-menu-container .menu,
-.navigation .menu-header-menu-container .menu {
-    font-size: 1.2rem;
-  }
 }
 .navigation .menu-primary-menu-container .menu .menu-item,
 .navigation .menu-header-menu-container .menu .menu-item {
