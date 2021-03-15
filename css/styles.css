@@ -258,6 +258,10 @@ ul.sub-menu li::before {
   padding-right: 0;
 }
 
+pre {
+  margin-bottom: 2rem;
+}
+
 .archive-pagination {
   text-align: center;
 }
