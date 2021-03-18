@@ -81,7 +81,7 @@
         // But this mixin is only used for buttons, hence this part
         border-radius: 1rem;
         background-color: $color-gray;
-        transition: all .4s;
+        transition: $transition-normal;
 
         // If we have a browser that doesn't support hover (phone or tablet)
         // Then we don't want the element to be visible.

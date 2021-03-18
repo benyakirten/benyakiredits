@@ -3,6 +3,37 @@
 while (have_posts()) :
     the_post(); ?>
     <main class="generic-container">
+        <aside class="linkbox">
+            <?php
+                if ($parent_post_id):
+            ?>
+                <div class="linkbox__parent-box">
+                    <a
+                        class="linkbox__parent-box__link"
+                        href="<?php echo get_permalink($parent_post_id) ?>">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        Back to <?php echo get_the_title($parent_post_id)?>
+                    </a>
+                    <span class="linkbox__parent-box__current"><?php the_title(); ?></span>
+                </div>
+            <?php endif; ?>
+            <div class="linkbox__child-box">
+                <a
+                    class="linkbox__child-box__link"
+                    href="<?php echo get_permalink($parent_post_id); ?>">
+                    <?php echo get_the_title($parent_post_id); ?> &#9660;
+                </a>
+                <ul class="linkbox__child-box__list">
+                    <?php
+                        wp_list_pages(array(
+                            'title_li' => null,
+                            'child_of' => $parent_post_id ? $parent_post_id : get_the_ID(),
+                            'sort_column' => 'menu_order'
+                        ));
+                    ?>
+                </ul>
+            </div>
+        </aside>
         <h2 class="generic-container__title heading-title">
             <?php the_title(); ?>
         </h2>
