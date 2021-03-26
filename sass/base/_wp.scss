@@ -54,6 +54,7 @@ img {
 ul,
 ol {
     list-style: none;
+    margin-bottom: 1rem;
 
     li::before {
         content: "\27A4";
@@ -64,7 +65,10 @@ ol {
 ul[data-sharing-events-added],
 ul.linkbox__child-box__list,
 ul.menu,
-ul.sub-menu {
+ul.sub-menu,
+ul.prevent-before {
+    margin-bottom: inherit;
+
     li::before {
         content: "";
         padding-right: 0;

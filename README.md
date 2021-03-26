@@ -23,7 +23,11 @@ The theme was written using a WordPress 5.7 installation with PHP 7.3.5 and MySQ
 
 I wrote most of the comments in a few hours and am too lazy to make them better/more comprehensive. That said, if any of the functionality is unclear, let me know so I can explain it. There were a handful of CSS features that I used for the first time (such as object fit), and I'm sure there are better ways to write it.
 
+* PLANNED CHANGES
+> Added an "upcoming" projects/books/short stories section, maybe with a preview of what I'm working on. I want to at least add canvas elements and animations to some part of the website.
+
 * CHANGELOG
 > 3/13/2021: Put single line statements into single line instead of spreading across multiple lines. Added some redundancies to help with Bluehost differences between it and local environment. Fixed custom field variable reading in template-parts/content-book.php
 > 3/13/2021-2: Uh, it turns out I forgot to paginate links in the archive pages. I completely overlooked it, but it was a quick fix. I might have to push a few other small changes in the coming days.
 > 3/15/2021: I changed the ::before pseudo element for ul and ol. Turns out the nav menus, linkbox child menus and jetpack's social menu icons are lists too.
+> 3/25/2021: I didn't notice that the ::before was applied to the tech list on the cards. I also added a small margin bottom to the end of regular lists.

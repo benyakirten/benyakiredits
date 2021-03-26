@@ -243,6 +243,7 @@ img {
 ul,
 ol {
   list-style: none;
+  margin-bottom: 1rem;
 }
 ul li::before,
 ol li::before {
@@ -250,10 +251,18 @@ ol li::before {
   padding-right: 1rem;
 }
 
+ul[data-sharing-events-added],
+ul.linkbox__child-box__list,
+ul.menu,
+ul.sub-menu,
+ul.prevent-before {
+  margin-bottom: inherit;
+}
 ul[data-sharing-events-added] li::before,
 ul.linkbox__child-box__list li::before,
 ul.menu li::before,
-ul.sub-menu li::before {
+ul.sub-menu li::before,
+ul.prevent-before li::before {
   content: "";
   padding-right: 0;
 }

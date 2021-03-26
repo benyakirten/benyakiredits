@@ -13,7 +13,7 @@
         </div>
         <div class="portfolio__card__details">
             <span class="portfolio__card__details__caption">Technologies Used:</span>
-            <ul>
+            <ul class="prevent-before">
                 <?php
                     foreach($technologies_split as $tech):
                         $link_icon = get_theme_file_uri('/images/tech/' . $tech . '.svg');
