@@ -11,4 +11,4 @@ require get_theme_file_path('/inc/load-scripts.php');
 require get_theme_file_path('/inc/nav-features.php');
 
 // Utility functions
-require get_theme_file_path('/inc/full-technology.php');
+require get_theme_file_path('/inc/utils.php');

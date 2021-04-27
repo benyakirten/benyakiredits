@@ -1,4 +1,4 @@
-function alignFooterPosition () {
+const alignFooterPosition = () => {
     // This is a function to make sure the footer is at the bottom of the page
 
     // The footer by default is set to be the last element on the page
@@ -21,17 +21,25 @@ function alignFooterPosition () {
     // the content of the pages were dynamic
     
     const footer = document.querySelector(".footer");
-    const footerBottom = footer.getClientRects()['0'].bottom;
+    const footerBottom = footer.getBoundingClientRect().bottom;
     
-    const availHeight = window.screen.availHeight;
+    const { availHeight } = window.screen;
 
     const nav = document.querySelector(".navigation");
-    const navBottom = nav.getClientRects()['0'].bottom;
+    const navBottom = nav.getBoundingClientRect().bottom;
 
     if (footerBottom < availHeight && navBottom > 0) footer.classList.add("cling-to-bottom");
+    else if (footer.classList.contains("cling-to-bottom")) footer.classList.remove("cling-to-bottom");
 }
 
-// Because project pages is dynamically fetching data, this script sometimes function correctly
-if (post_type !== 'project') {
-    alignFooterPosition();
+const deactivatePaginationOnArchivesWithNoPages = () => {
+    if (page_data.is_archive
+        && document.querySelectorAll(".page-numbers").length === 0) {
+        document.querySelector(".archive-pagination").style.display = "none";
+    }
 }
+
+alignFooterPosition();
+window.addEventListener("resize", alignFooterPosition);
+
+deactivatePaginationOnArchivesWithNoPages();

@@ -1,3 +1,6 @@
+// RETRIEVING DATA PASSED IN FROM load-scripts.php
+const { site_url, icon_uri } = item_info;
+
 // HTML ELEMENTS
 const searchBar = document.querySelector("#search-bar");
 const searchResults = document.querySelector('#search-results');
@@ -138,7 +141,6 @@ searchBar.addEventListener('keypress', e => {
     searchTimeout = setTimeout(async () => {
         // Assign the width value for when search results are found
         width = searchBar.clientWidth;
-        console.log(width);
         // If the searchbar is empty, we stop the function now
         const search = searchBar.value;
         if (!search) {

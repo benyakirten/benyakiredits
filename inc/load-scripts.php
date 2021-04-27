@@ -11,18 +11,24 @@
     // since the footer will be positioned relatively by default because either it is 1 line or less
     // and functions incorrectly, or it is longer than 1 line and not needed
     wp_enqueue_script('main-blog-js', get_theme_file_uri('js/scripts.js'), NULL, '1.0', true);
-    wp_localize_script('main-blog-js', 'post_type', get_post_type());
+    wp_localize_script('main-blog-js', 'page_data', array(
+        'is_archive' => is_archive() ? true : false
+    ));
 
     // Search script
     wp_enqueue_script('search-js', get_theme_file_uri('js/modules/search.js'), NULL, '1.0', true);
-    wp_localize_script('search-js', 'site_url', get_site_url());
-    wp_localize_script('search-js', 'icon_uri', get_theme_file_uri('images/tech'));
+    wp_localize_script('search-js', 'item_info', array(
+        'site_url' => get_site_url(),
+        'icon_uri' => get_theme_file_uri('images/tech')
+    ));
 
     // Scripts for individual pages
     if ( is_singular('project') ) {
         // Script for fetching the date of the latest update on a github repo
         wp_enqueue_script('github-fetch', get_theme_file_uri('js/modules/fetchLatestUpdate.js'), NULL, '1.0', true);
-        wp_localize_script('github-fetch', 'repo_link', get_field('repo_link'));
+        wp_localize_script('github-fetch', 'project_info', array(
+            'repo_link' => get_field('repo_link')
+        ));
     }
 
     if ( is_archive('project') ) {

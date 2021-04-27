@@ -100,7 +100,9 @@ while (have_posts()) :
         </div>
     </section>
 <?php endwhile; ?>
-<aside class="generic-container archive-pagination">
-    <?php echo paginate_links(); ?>
-</aside>
+<?php if ($numpages > 0): ?>
+    <aside class="generic-container archive-pagination">
+        <?php echo paginate_links(); ?>
+    </aside>
+<?php endif; ?>
 <?php get_footer(); ?>

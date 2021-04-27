@@ -9,7 +9,9 @@ const fetchLastUpdated = async () => {
         return;
     }
 
-    // repo_link is a value provided by functions.php
+    // project_info is an associative array provided by functions.php
+    const { repo_link } = project_info;
+
     const fullLink = repo_link.replace('github.com/', 'api.github.com/repos/')
     const res = await fetch(fullLink);
     const results = await res.json();
