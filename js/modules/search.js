@@ -8,6 +8,7 @@ const searchDiv = searchResults.children[0];
 
 // Timeout to only perform search if the user pauses for half a second
 let searchTimeout;
+let closeTimeout;
 
 // Div is by default hidden by having a Y scale of 0
 // This makes it appear along a transform-origin of top
@@ -65,7 +66,11 @@ const formatProjectDiv = project => (`
                 `), '')}
             </div>
         </a>
-        <a class="search-results__item__link search-results__item__link--project" href="${project.repo_link}">
+        <a
+            class="search-results__item__link search-results__item__link--project"
+            href="${project.repo_link}"
+            id="search-repo-link"
+        >
             <img class="search-results__item__github" src="${icon_uri}/Github.svg">
         </a>
     </div>`
@@ -151,14 +156,14 @@ searchBar.addEventListener('keypress', e => {
             const formatted = formatResults(data);
             // CHECK FOR EMPTY RESULTS
             searchResults.innerHTML = formatted ? formatted : `
-                <div class="search-results__empty">
+                <div id="search-results" class="search-results__empty">
                     Sorry, no results found <i class="fa fa-frown-o" aria-hidden="true"></i>
                 </div>`;
         } catch (e) {
             // ERROR
             console.log(e);
             searchResults.innerHTML = `
-            <div class="search-results__empty">
+            <div id="search-results" class="search-results__empty">
                 <i class="fa fa-exclamation" aria-hidden="true"></i> An Error Has Occurred. Please try again.
             </div>`;
         }
@@ -172,11 +177,25 @@ searchBar.addEventListener('keyup', e => {
     }
 });
 
-// This is a bad solution to the jankiness of clicking on one
-// of the dead spaces in a search result
-searchBar.addEventListener('focusout', () => {
-    setTimeout(() => {
+// Now the focus class is added entirely through JavaScript
+window.addEventListener('click', e => {
+    let targetId;
+    try {
+        targetId = e.target.id || e.target.parentElement.id;
+    } catch {
+        // This will only catch if a click happens on the body element
+        targetId = null;
+    }
+    if (!searchBar.classList.contains("search-bar-focus") && targetId === "search-bar") {
+        searchBar.classList.add("search-bar-focus");
+    }
+    if (searchBar.classList.contains("search-bar-focus") &&
+        targetId !== "search-bar" &&
+        targetId !== "search-results" &&
+        targetId !== "search-repo-link"
+    ) {
+        searchBar.classList.remove("search-bar-focus");
         hideDiv();
-        searchBar.value = "";
-    }, 200);
+        setTimeout(() => searchBar.value = "", 400);
+    }
 });

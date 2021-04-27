@@ -81,27 +81,27 @@
                     width: 10rem;
                 }
 
-                &:focus {
-                    color: $color-brown;
-                    outline: none;
+                // &:focus {
+                //     color: $color-brown;
+                //     outline: none;
     
-                    // The search bar expands on clicking into it
-                    width: 35rem;
+                //     // The search bar expands on clicking into it
+                //     width: 35rem;
 
-                    // The amount changes depending on the screen
-                    // For phones the bar doesn't expand at all
-                    @include respond(phone) {
-                        width: 25rem;
-                        padding-left: 1rem;
+                //     // The amount changes depending on the screen
+                //     // For phones the bar doesn't expand at all
+                //     @include respond(phone) {
+                //         width: 25rem;
+                //         padding-left: 1rem;
 
-                        @include respond(no-hover) {
-                            @include respond(xs-phone) {
-                                width: 10rem;
-                            }
-                            width: 15rem;
-                        }
-                    }
-                }
+                //         @include respond(no-hover) {
+                //             @include respond(xs-phone) {
+                //                 width: 10rem;
+                //             }
+                //             width: 15rem;
+                //         }
+                //     }
+                // }
 
                 &::placeholder {
                     color: $color-gray-medium;
@@ -230,6 +230,27 @@
                     background-color: $color-brown;
                 }
             }
+        }
+    }
+}
+.search-bar-focus {
+    color: $color-brown;
+    outline: none;
+
+    // The search bar expands on clicking into it
+    width: 35rem;
+
+    // The amount changes depending on the screen
+    // For phones the bar doesn't expand at all
+    @include respond(phone) {
+        width: 25rem;
+        padding-left: 1rem;
+
+        @include respond(no-hover) {
+            @include respond(xs-phone) {
+                width: 10rem;
+            }
+            width: 15rem;
         }
     }
 }

@@ -927,27 +927,6 @@ pre {
     width: 10rem;
   }
 }
-.navigation__searchbar__form__search:focus {
-  color: #484018;
-  outline: none;
-  width: 35rem;
-}
-@media only screen and (max-width: 37.5em) {
-  .navigation__searchbar__form__search:focus {
-    width: 25rem;
-    padding-left: 1rem;
-  }
-}
-@media only screen and (max-width: 37.5em) and (hover: none) {
-  .navigation__searchbar__form__search:focus {
-    width: 15rem;
-  }
-}
-@media only screen and (max-width: 37.5em) and (hover: none) and (max-width: 25em) {
-  .navigation__searchbar__form__search:focus {
-    width: 10rem;
-  }
-}
 .navigation__searchbar__form__search::placeholder {
   color: #cdd0cb;
 }
@@ -1066,6 +1045,28 @@ pre {
 .navigation .menu-header-menu-container .menu .menu-item-has-children:hover {
   color: #fcf8ec;
   background-color: #484018;
+}
+
+.search-bar-focus {
+  color: #484018;
+  outline: none;
+  width: 35rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .search-bar-focus {
+    width: 25rem;
+    padding-left: 1rem;
+  }
+}
+@media only screen and (max-width: 37.5em) and (hover: none) {
+  .search-bar-focus {
+    width: 15rem;
+  }
+}
+@media only screen and (max-width: 37.5em) and (hover: none) and (max-width: 25em) {
+  .search-bar-focus {
+    width: 10rem;
+  }
 }
 
 .about-me__figure {
