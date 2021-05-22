@@ -16,3 +16,19 @@
         letter-spacing: 0;
     }
 }
+
+.flex {
+    display: flex;
+    &--row {
+        flex-direction: row;
+    }
+}
+
+.float {
+    &--left {
+        float: left;
+    }
+    &--right {
+        float: right;
+    }
+}

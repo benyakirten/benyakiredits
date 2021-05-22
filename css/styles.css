@@ -68,6 +68,20 @@ body {
   letter-spacing: 0;
 }
 
+.flex {
+  display: flex;
+}
+.flex--row {
+  flex-direction: row;
+}
+
+.float--left {
+  float: left;
+}
+.float--right {
+  float: right;
+}
+
 body {
   font-family: "Shippori Mincho", sans-serif;
   background-color: #f7f1e3;
@@ -398,6 +412,33 @@ pre {
   }
 }
 
+.figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+  padding-bottom: 2rem;
+}
+.figure__img {
+  height: 24rem;
+  width: 16rem;
+  margin-bottom: 1rem;
+}
+.figure__img--hover {
+  transition: all 0.4s;
+  transform-origin: top left;
+}
+.figure__img--hover:hover {
+  transform: scale(1.5);
+  z-index: 1;
+}
+.figure__caption {
+  border-radius: 3rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  padding: 1rem 1.5rem;
+  text-align: center;
+}
+
 .generic-container {
   position: relative;
   margin: 5rem 8rem;
@@ -602,6 +643,7 @@ pre {
   top: 0;
   left: 0;
   z-index: 10;
+  display: flex;
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
@@ -621,9 +663,19 @@ pre {
   transform: translate(-50%, -50%) scale(0.2);
   transition: all 0.4s 0.1s;
 }
+@media only screen and (max-width: 37.5em) {
+  .popup__content {
+    width: 95%;
+  }
+}
 .popup__heading {
   margin: 3rem;
   font-size: 1.8rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .popup__heading {
+    font-size: 1.2rem;
+  }
 }
 .popup__close {
   position: absolute;

@@ -132,24 +132,38 @@ while (have_posts()) :
         <?php if ($cover): ?>
             <section class="popup" id="popup">
                 <div class="popup__content">
-                    <h4 class="popup__heading book__popup__heading book__text">
-                        Cover designed by <?php echo get_field('cover_designer') . ". " . get_field('cover_designer_bio'); ?>
-                        <div class="book__popup__link-group">
-                            <?php foreach($cover_links_length as $index): ?>
-                                <a class="popup__link book__popup__link" href="<?php echo $cover_links[$index]; ?>">
-                                    <span class="book__link-span">
-                                        <?php
-                                            // Cover links can either be their direct URL
-                                            // Or a nice looking name (i.e. Behance, Instagram vs instagram/...)
-                                            echo $cover_links_names[$index]
-                                                ? $cover_links_names[$index]
-                                                : $cover_links[$index];
-                                        ?>
-                                    </span>
-                                </a>
-                            <?php endforeach; ?>
+                    <div class="flex">
+                        <div>
+                            <?php if ($cover): ?>
+                                <figure class="figure">
+                                    <img class="figure__img figure__img--hover" src="<?php echo $cover; ?>" />
+                                    <figcaption class="figure__caption">
+                                        <?php the_title(); ?>
+                                    </figcaption>
+                                </figure>
+                            <?php endif; ?>
                         </div>
-                    </h4>
+                        <div>
+                            <h4 class="popup__heading book__popup__heading book__text">
+                                Cover designed by <?php echo get_field('cover_designer') . ". " . get_field('cover_designer_bio'); ?>
+                                <div class="book__popup__link-group">
+                                    <?php foreach($cover_links_length as $index): ?>
+                                        <a class="popup__link book__popup__link" href="<?php echo $cover_links[$index]; ?>">
+                                            <span class="book__link-span">
+                                                <?php
+                                                    // Cover links can either be their direct URL
+                                                    // Or a nice looking name (i.e. Behance, Instagram vs instagram/...)
+                                                    echo $cover_links_names[$index]
+                                                        ? $cover_links_names[$index]
+                                                        : $cover_links[$index];
+                                                ?>
+                                            </span>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </div>
+                            </h4>
+                        </div>
+                    </div>
                     <a class="popup__close" id="popup-closer">&times;</a>
                 </div>
             </section>

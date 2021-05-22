@@ -8,6 +8,10 @@ while (have_posts()) :
             // We need the published on date and to know if it was in the past
             $today = date('mdY');
             $published_on = get_field('published_on');
+
+            // To display an image of the book
+            $cover = get_field('cover');
+            $cover_designer = get_field('cover_designer');
             
             // Related stories and projects for the link box
             $related_stories = get_field('related_stories');
@@ -89,11 +93,27 @@ while (have_posts()) :
             </div>
         </h2>
         <div class="generic-container__content">
-            <?php
-                echo has_excerpt()
-                    ? get_the_excerpt()
-                    : wp_trim_words(get_the_content(), 50);
-            ?>
+            <div class="flex">
+                <?php if ($cover): ?>
+                    <figure class="figure">
+                        <img class="figure__img" src="<?php echo $cover; ?>" />
+                        <figcaption class="figure__caption">
+                            <?php
+                                if ($cover_designer) {
+                                    echo 'Cover design by ' . $cover_designer;
+                                } else {
+                                    echo get_the_title();
+                                }
+                            ?>
+                        </figcaption>
+                    </figure>
+                <?php endif; ?>
+                <?php
+                    echo has_excerpt()
+                        ? get_the_excerpt()
+                        : wp_trim_words(get_the_content(), 50);
+                ?>
+            </div>
             <div class="generic-container__read-more">
                 <a href="<?php the_permalink(); ?>">Read more &rarr;</a>
             </div>
