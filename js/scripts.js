@@ -16,14 +16,5 @@ const alignFooterPosition = () => {
     else if (footer.classList.contains("cling-to-bottom")) footer.classList.remove("cling-to-bottom");
 }
 
-const deactivatePaginationOnArchivesWithNoPages = () => {
-    if (page_data.is_archive
-        && document.querySelectorAll(".page-numbers").length === 0) {
-        document.querySelector(".archive-pagination").style.display = "none";
-    }
-}
-
 alignFooterPosition();
 window.addEventListener("resize", alignFooterPosition);
-
-deactivatePaginationOnArchivesWithNoPages();

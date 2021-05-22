@@ -14,6 +14,9 @@ const updateData = async el => {
     // Each element has a data-repo attribute
     // which we pass to the the fetchLastUpdated function
     const repo = el.getAttribute('data-repo');
+    if (!repo) {
+        return;
+    }
     const date = await fetchLastUpdated(repo);
 
     // Remove the spinner and replace it with the correct data

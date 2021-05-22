@@ -2,7 +2,9 @@
 // For a single project, we display a grid for all used technologies prior to the content
 
 while (have_posts()) :
-    the_post(); ?>
+    the_post();
+    $repo_link = get_field('repo_link');
+?>
     <main class="generic-container">
         <h2 class="generic-container__title heading-title squeeze-together">
             <?php the_title(); ?>
@@ -16,8 +18,12 @@ while (have_posts()) :
                         </span>
                         &horbar;
                         <span class="project__technologies__lead__released">
-                            Last updated* on
-                            <div style="display: inline-block;" class="spinner" id="last-updated"></div>
+                            Last updated<?php if ($repo_link) echo '*' ?> on
+                            <?php if ($repo_link): ?>
+                                <div style="display: inline-block;" class="spinner" id="last-updated"></div>
+                            <?php else: ?>
+                                <div style="display: inline-block;" id="last-updated"><?php echo get_field('latest_update'); ?></div>
+                            <?php endif; ?>
                         </span>
                     </h4>
                     <h4 class="project__technologies__lead__title">
@@ -45,15 +51,19 @@ while (have_posts()) :
             <div class="generic-container__content">
                 <?php the_content(); ?>
             </div>
-            <aside class="project__asterisky">
-                *If fetch request to Github is unsuccessful, please consult the repository for latest information
-            </aside>
+            <?php if ($repo_link): ?>
+                <aside class="project__asterisky">
+                    *If fetch request to Github is unsuccessful, please consult the repository for latest information
+                </aside>
+            <?php endif; ?>
             <section class="project__links">
-                <a class="project__links__btn" href="<?php echo get_field('repo_link'); ?>">
-                    <button class="btn btn--dark project__btn">
-                        Github Repo
-                    </button>
-                </a>
+                <?php if ($repo_link): ?>
+                    <a class="project__links__btn" href="<?php echo get_field('repo_link'); ?>">
+                        <button class="btn btn--dark project__btn">
+                            Github Repo
+                        </button>
+                    </a>
+                <?php endif; ?>
                 <?php
                     // Link where project can be seen such as Heroku, etc.
                     $main_link = get_field('main_link');

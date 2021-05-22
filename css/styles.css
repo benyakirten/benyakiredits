@@ -955,11 +955,16 @@ pre {
 }
 .navigation .menu-primary-menu-container .menu .menu-item,
 .navigation .menu-header-menu-container .menu .menu-item {
-  text-decoration: none;
-  padding: 0.5rem 4rem;
-  color: #484018;
-  transition: all 0.2s;
   position: relative;
+  padding: 0.5rem 10rem 0.5rem 1rem;
+  color: #484018;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.navigation .menu-primary-menu-container .menu .menu-item:not(:last-child):not(:first-child),
+.navigation .menu-header-menu-container .menu .menu-item:not(:last-child):not(:first-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
+  border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
 @media only screen and (max-width: 25em) {
   .navigation .menu-primary-menu-container .menu .menu-item,
@@ -967,7 +972,7 @@ pre {
     font-size: 1.2rem;
   }
 }
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 56.25em) {
   .navigation .menu-primary-menu-container .menu .menu-item,
 .navigation .menu-header-menu-container .menu .menu-item {
     padding: 1rem;
@@ -1025,8 +1030,15 @@ pre {
   color: #484018;
   background-color: #fcf8ec;
 }
+.navigation .menu-primary-menu-container .menu .menu-item-has-children,
+.navigation .menu-header-menu-container .menu .menu-item-has-children {
+  position: relative;
+}
 .navigation .menu-primary-menu-container .menu .menu-item-has-children::after,
 .navigation .menu-header-menu-container .menu .menu-item-has-children::after {
+  position: absolute;
+  top: 20%;
+  right: 0.5rem;
   content: "▼";
 }
 @media only screen and (max-width: 56.25em) {

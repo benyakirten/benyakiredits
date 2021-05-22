@@ -81,28 +81,6 @@
                     width: 10rem;
                 }
 
-                // &:focus {
-                //     color: $color-brown;
-                //     outline: none;
-    
-                //     // The search bar expands on clicking into it
-                //     width: 35rem;
-
-                //     // The amount changes depending on the screen
-                //     // For phones the bar doesn't expand at all
-                //     @include respond(phone) {
-                //         width: 25rem;
-                //         padding-left: 1rem;
-
-                //         @include respond(no-hover) {
-                //             @include respond(xs-phone) {
-                //                 width: 10rem;
-                //             }
-                //             width: 15rem;
-                //         }
-                //     }
-                // }
-
                 &::placeholder {
                     color: $color-gray-medium;
                 }
@@ -136,17 +114,24 @@
             list-style: none;
     
             .menu-item {
-                text-decoration: none;
-                padding: 0.5rem 4rem;
-                color: $color-brown;
-                transition: $transition-fast;
                 position: relative;
+                padding: 0.5rem 10rem 0.5rem 1rem;
+                
+                &:not(:last-child):not(:first-child) {
+                    border-right: 1px solid rgba($color-black, 0.5);
+                    border-left: 1px solid rgba($color-black, 0.5);
+                }
+
+                color: $color-brown;
+                text-decoration: none;
+
+                transition: $transition-fast;
 
                 @include respond(xs-phone) {
                     font-size: $font-size-small;
                 }
 
-                @include respond(phone) {
+                @include respond(tab-port) {
                     padding: 1rem;
                 }
 
@@ -209,8 +194,13 @@
             }
 
             .menu-item-has-children {
+                position: relative;
                 &::after {
                     // The dropdown arrow is an ::after pseudoelement
+                    position: absolute;
+                    top: 20%;
+                    right: 0.5rem;
+
                     content: "\25BC";
 
                     @include respond(tab-port) {

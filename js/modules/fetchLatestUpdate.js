@@ -1,7 +1,7 @@
 // Fetch latest update date for the repo
-const fetchLastUpdated = async () => {
+const fetchLastUpdated = async repoLink => {
     // We want to exit the function immediately if we can't find the #last-updated element
-    let lastUpdated = null;
+    let lastUpdated;
     
     try {
         lastUpdated = document.querySelector("#last-updated");
@@ -9,10 +9,7 @@ const fetchLastUpdated = async () => {
         return;
     }
 
-    // project_info is an associative array provided by functions.php
-    const { repo_link } = project_info;
-
-    const fullLink = repo_link.replace('github.com/', 'api.github.com/repos/')
+    const fullLink = repoLink.replace('github.com/', 'api.github.com/repos/')
     const res = await fetch(fullLink);
     const results = await res.json();
     // NOTE: this is one of the largest uses of network resources
@@ -31,4 +28,7 @@ const fetchLastUpdated = async () => {
     lastUpdated.innerHTML = updateDate;
 }
 
-fetchLastUpdated();
+// project_info is an associative array provided by functions.php
+if (project_info && project_info.repo_link) {
+    fetchLastUpdated(project_info.repo_link);
+}

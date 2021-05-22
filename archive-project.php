@@ -19,8 +19,12 @@ while (have_posts()) :
                     </span>
                     &horbar;
                     <span class="project__technologies__lead__released">
-                        Last updated* on
-                        <div style="display: inline-block;" data-repo="<?php if ($repo_link) echo $repo_link ?>" class="spinner" id="last-updated"></div>
+                        Last updated<?php if ($repo_link) echo '*' ?> on
+                        <?php if ($repo_link): ?>
+                            <div style="display: inline-block;" data-repo="<?php echo $repo_link ?>" class="spinner" id="last-updated"></div>
+                        <?php else: ?>
+                            <div style="display: inline-block;" id="last-updated"><?php echo get_field('latest_update'); ?></div>
+                        <?php endif; ?>
                     </span>
                 </h4>
                 <h4 class="project__technologies__lead__title">
@@ -50,6 +54,11 @@ while (have_posts()) :
                     ? get_the_excerpt()
                     : wp_trim_words(get_the_content(), 30);
             ?>
+            <?php if ($repo_link): ?>
+                <aside class="project__asterisky">
+                    *If fetch request to Github is unsuccessful, please consult the repository for latest information
+                </aside>
+            <?php endif; ?>
             <div class="generic-container__read-more">
                 <a href="<?php the_permalink(); ?>">More details &rarr;</a>
             </div>

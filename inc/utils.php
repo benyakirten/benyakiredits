@@ -32,6 +32,8 @@ function get_full_technology($tech) {
             return "Unity";
         case "ml":
             return "Machine Learning";
+        case "svelte":
+            return "Svelte";
         default:
             return $tech;
     }
