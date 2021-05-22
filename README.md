@@ -24,16 +24,16 @@ The theme was written using a WordPress 5.7 installation with PHP 7.3.5 and MySQ
 I wrote most of the comments in a few hours and am too lazy to make them better/more comprehensive. That said, if any of the functionality is unclear, let me know so I can explain it. There were a handful of CSS features that I used for the first time (such as object fit), and I'm sure there are better ways to write it.
 
 * PLANNED CHANGES
-> Added an "upcoming" projects/books/short stories section, maybe with a preview of what I'm working on. I want to at least add canvas elements and animations to some part of the website.
-> Create many more template parts
-> These updates probably won't happen until I finish the website and work on my second book.
+- Added an "upcoming" projects/books/short stories section, maybe with a preview of what I'm working on. I want to at least add canvas elements and animations to some part of the website.
+- Create many more template parts
+- These updates probably won't happen until I finish work on my second book, and who knows even then?
 
 * CHANGELOG
-> 3/13/2021: Put single line statements into single line instead of spreading across multiple lines. Added some redundancies to help with Bluehost differences between it and local environment. Fixed custom field variable reading in template-parts/content-book.php
-> 3/13/2021-2: Uh, it turns out I forgot to paginate links in the archive pages. I completely overlooked it, but it was a quick fix. I might have to push a few other small changes in the coming days.
-> 3/15/2021: I changed the ::before pseudo element for ul and ol. Turns out the nav menus, linkbox child menus and jetpack's social menu icons are lists too.
-> 3/25/2021: I didn't notice that the ::before was applied to the tech list on the cards. I also added a small margin bottom to the end of regular lists.
-> 4/27/2021: Fixed the footer alignment function so it works properly in production (no errors in development before previously, just in production). Added a function to remove the pagination div on archive pages with no pages to paginate. Changed all script localizations in the inc folder to provide information as arrays instead of as one-off information. Changed full-technology.php to utils.php because, some day, it may include more functions than that one.
-> 4/27/2021: I remade the footer alignment function because I hadn't actually fixed it. I also took the opportunity to make the searchbar focus and size entirely run in JavaScript because it was working jankily because CSS counted it as losing focus when clicking on one of the results. It made clicking on any of the results difficult.
-> 5/21/2021: Made github repos no longer obligatory for projects. Changed the padding on the header navigation items.
-> 5/22/2021: Thanks to a great suggestion by my friend Matt, I've added an enlarged book cover to the popup about the cover designer.
+- 3/13/2021: Put single line statements into single line instead of spreading across multiple lines. Added some redundancies to help with Bluehost differences between it and local environment. Fixed custom field variable reading in template-parts/content-book.php
+- 3/13/2021-2: Uh, it turns out I forgot to paginate links in the archive pages. I completely overlooked it, but it was a quick fix. I might have to push a few other small changes in the coming days.
+- 3/15/2021: I changed the ::before pseudo element for ul and ol. Turns out the nav menus, linkbox child menus and jetpack's social menu icons are lists too.
+- 3/25/2021: I didn't notice that the ::before was applied to the tech list on the cards. I also added a small margin bottom to the end of regular lists.
+- 4/27/2021: Fixed the footer alignment function so it works properly in production (no errors in development before previously, just in production). Added a function to remove the pagination div on archive pages with no pages to paginate. Changed all script localizations in the inc folder to provide information as arrays instead of as one-off information. Changed full-technology.php to utils.php because, some day, it may include more functions than that one.
+- 4/27/2021: I remade the footer alignment function because I hadn't actually fixed it. I also took the opportunity to make the searchbar focus and size entirely run in JavaScript because it was working jankily because CSS counted it as losing focus when clicking on one of the results. It made clicking on any of the results difficult.
+- 5/21/2021: Made github repos no longer obligatory for projects. Changed the padding on the header navigation items.
+- 5/22/2021: Thanks to a great suggestion by my friend Matt, I've added an enlarged book cover to the popup about the cover designer.

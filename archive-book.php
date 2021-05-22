@@ -111,7 +111,7 @@ while (have_posts()) :
                 <?php
                     echo has_excerpt()
                         ? get_the_excerpt()
-                        : wp_trim_words(get_the_content(), 50);
+                        : wp_trim_words(get_the_content(), 100);
                 ?>
             </div>
             <div class="generic-container__read-more">
