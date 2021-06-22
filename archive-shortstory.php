@@ -29,7 +29,7 @@ while (have_posts()):
             ?>
                 <div class="linkbox__child-box">
                     <span class="linkbox__child-box__link">
-                        Alternate Links &#9660;
+                        Alternate Links
                     </span>
                     <ul class="linkbox__child-box__list">
                         <?php

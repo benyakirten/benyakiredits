@@ -1,0 +1,78 @@
+@import '../../../../styles/globals.scss';
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    width: 95%;
+    height: 40rem;
+
+    @include respond(phone) {
+        height: 48rem;
+        padding-right: 1rem;
+    }
+
+    background-color: $color-brown;
+    color: $color-gray-light-1;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+
+    .return {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        height: 10rem;
+        width: 10rem;
+        padding-right: 3rem;
+        padding-bottom: 3rem;
+
+        clip-path: polygon(0 0, 0% 100%, 100% 0%); // Triangle shape
+        background-color: $color-blue-light;
+        
+        font-size: $font-size-xl;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        outline: none;
+        border: none;
+        border-top-left-radius: 3px;
+
+        opacity: 0.7;
+        transition: all 0.4s;
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .content {
+        display: flex;
+        margin-left: 10rem;
+
+        @include respond(phone) {
+            flex-direction: column;
+            margin-left: 6rem;
+            margin-top: 2rem;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            h3 {
+                border-bottom: 1px solid $color-gray-light-1;
+                margin: 1rem;
+
+                &:hover {
+                    transform: scale(1);
+                }
+            }
+            p {
+                margin: 1rem;
+            }
+        }
+    }
+}

@@ -31,10 +31,10 @@
 
     &__link:link,
     &__link:visited {
+        @include invert-colors-on-hover;
+        
         text-decoration: none;
         padding: 0 2rem;
-        color: $color-brown;
-        transition: all .5s;
 
         display: flex;
         align-items: center;
@@ -42,8 +42,6 @@
     }
 
     &__link:hover {
-        color: $color-gray;
-        background-color: $color-brown;
         animation: stretch-out 3s forwards ease-in-out;
     }
 
@@ -122,7 +120,11 @@
                     border-left: 1px solid rgba($color-black, 0.5);
                 }
 
-                color: $color-brown;
+                // color: $color-brown;
+                // &:hover {
+                //     color: $color-gray;
+                //     background-color: $color-brown;
+                // }
                 text-decoration: none;
 
                 transition: $transition-fast;
@@ -133,11 +135,6 @@
 
                 @include respond(tab-port) {
                     padding: 1rem;
-                }
-
-                &:hover {
-                    color: $color-gray;
-                    background-color: $color-brown;
                 }
 
                 &:hover > .sub-menu {
@@ -162,23 +159,15 @@
 
                     list-style: none;
                     border: 1px solid $color-black;
-                    background-color: $color-brown;
 
                     z-index: 2;
 
                     .menu-item {
-                        color: $color-brown;
-                        background-color: $color-gray;
-
+                        @include invert-colors-on-hover;
                         border-bottom: 1px solid $color-brown;
 
                         width: 100%;
                         padding: 0 1rem;
-
-                        &:hover {
-                            color: $color-gray;
-                            background-color: $color-brown;
-                        }
                     }
                 }
             }
@@ -186,11 +175,6 @@
             .current-menu-item {
                 color: $color-gray;
                 background-color: $color-brown;
-        
-                &:hover {
-                    color: $color-brown;
-                    background-color: $color-gray;
-                }
             }
 
             .menu-item-has-children {
@@ -223,6 +207,8 @@
         }
     }
 }
+
+// Focusing is handled by JS
 .search-bar-focus {
     color: $color-brown;
     outline: none;

@@ -6,9 +6,9 @@ while (have_posts()) :
     $repo_link = get_field('repo_link');
 ?>
     <main class="generic-container">
-        <h2 class="generic-container__title heading-title squeeze-together">
+        <h1 class="generic-container__title heading-title squeeze-together">
             <?php the_title(); ?>
-        </h2>
+        </h1>
         <div class="project">
             <section class="project__technologies">
                 <div class="project__technologies__lead">

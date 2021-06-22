@@ -31,7 +31,7 @@ while (have_posts()) :
                     <a
                         class="linkbox__child-box__link"
                         href="<?php echo get_permalink($parent_post_id); ?>">
-                        <?php echo get_the_title($parent_post_id); ?> &#9660;
+                        <?php echo get_the_title($parent_post_id); ?>
                     </a>
                     <ul class="linkbox__child-box__list">
                         <?php
@@ -45,9 +45,9 @@ while (have_posts()) :
                 </div>
             </aside>
         <?php endif; ?>
-        <h2 class="generic-container__title heading-title">
+        <h1 class="generic-container__title heading-title">
             <?php the_title(); ?>
-        </h2>
+        </h1>
         <div class="generic-container__content">
             <?php the_content(); ?>
         </div>

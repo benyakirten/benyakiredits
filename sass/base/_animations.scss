@@ -41,3 +41,26 @@
         transform: rotate(360deg);
     }
 }
+
+// To be universally available for the JSX Click Animation
+@keyframes click-animation-expand {
+    from {
+        transform: scale(0) rotate(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes click-animation-retract {
+    from {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+}

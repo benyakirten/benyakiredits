@@ -3,7 +3,7 @@
 while (have_posts()) :
     the_post();
 ?>
-    <section class="generic-container">
+    <article class="generic-container">
         <?php
             // We need the published on date and to know if it was in the past
             $today = date('mdY');
@@ -42,7 +42,7 @@ while (have_posts()) :
                 ?>
                     <div class="linkbox__child-box">
                         <span class="linkbox__child-box__link">
-                            Related Short Stories &#9660;
+                            Related Short Stories
                         </span>
                         <ul class="linkbox__child-box__list">
                             <?php foreach($related_stories as $story): ?>
@@ -57,7 +57,7 @@ while (have_posts()) :
                 <?php endif; ?>
             </aside>
         <?php endif; ?>
-        <h2 class="generic-container__title heading-title">
+        <h1 class="generic-container__title heading-title">
             <a href="<?php the_permalink(); ?>" class="title-link">
                 <span class="squeeze-together"><?php the_title(); ?></span>
             </a>
@@ -91,7 +91,7 @@ while (have_posts()) :
                     </a>
                 <?php endforeach; ?>
             </div>
-        </h2>
+        </h1>
         <div class="generic-container__content">
             <div class="flex">
                 <?php if ($cover): ?>
@@ -118,7 +118,7 @@ while (have_posts()) :
                 <a href="<?php the_permalink(); ?>">Read more &rarr;</a>
             </div>
         </div>
-    </section>
+    </article>
 <?php endwhile; ?>
 <?php if ($numpages > 0): ?>
     <aside class="generic-container archive-pagination">

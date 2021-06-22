@@ -6,12 +6,12 @@ while (have_posts()) :
     $repo_link = get_field('repo_link');
 ?>
     <section class="generic-container">
-        <h2 class="generic-container__title heading-title">
+        <h1 class="generic-container__title heading-title">
             <a href="<?php the_permalink(); ?>" class="title-link">
                 <span class="squeeze-together"><?php the_title(); ?></span>
             </a>
-        </h2>
-        <section class="project__technologies">
+        </h1>
+        <article class="project__technologies">
             <div class="project__technologies__lead">
                 <h4 class="project__technologies__lead__title">
                     <span class="project__technologies__lead__released">
@@ -47,7 +47,7 @@ while (have_posts()) :
                     </div>
                 <?php endforeach; ?>
             </div>
-        </section>
+        </article>
         <div class="generic-container__content">
             <?php
                 echo has_excerpt()

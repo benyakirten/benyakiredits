@@ -21,6 +21,7 @@
         background-color: $color-brown;
 
         display: flex;
+        align-items: center;
 
         @include respond(phone) {
             top: 0;
@@ -63,8 +64,39 @@
         border-radius: 2rem;
         color: $color-gray;
         background-color: $color-brown;
+        
+        display: flex;
+        align-items: center;
 
         z-index: 1;
+
+        min-width: 30rem;
+        @include respond(tab-port) {
+            min-width: 15rem;
+        }
+        @include respond(phone) {
+            min-width: initial;
+        }
+
+        &::after {
+            // The dropdown arrow is an ::after pseudoelement
+            position: absolute;
+            top: 0;
+            right: 1rem;
+
+            content: "\25BC";
+
+            @include respond(tab-port) {
+                // When the screen gets too small, we get rid of it
+                content: "";
+            }
+
+            @include respond(no-hover) {
+                // Idem with any screen that cannot hover because the dropdown arrow
+                // implies a hover ability
+                content: "";
+            }
+        }
 
         @include respond(phone) {
             top: 0;

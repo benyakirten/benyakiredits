@@ -42,7 +42,7 @@ while (have_posts()) :
                 ?>
                     <div class="linkbox__child-box">
                         <span class="linkbox__child-box__link">
-                            Related Short Stories &#9660;
+                            Related Short Stories
                         </span>
                         <ul class="linkbox__child-box__list">
                             <?php
@@ -60,9 +60,9 @@ while (have_posts()) :
             </aside>
         <?php endif; ?>
         <div class="book__header">
-            <h2 class="generic-container__title heading-title squeeze-together">
+            <h1 class="generic-container__title heading-title squeeze-together">
                 <?php the_title(); ?>
-            </h2>
+            </h1>
         </div>
         <section class="book__purchase">
             <?php
@@ -131,17 +131,15 @@ while (have_posts()) :
         </section>
         <?php if ($cover): ?>
             <section class="popup" id="popup">
-                <div class="popup__content">
+                <dialog class="popup__content">
                     <div class="flex">
                         <div>
-                            <?php if ($cover): ?>
-                                <figure class="figure">
-                                    <img class="figure__img figure__img--hover" src="<?php echo $cover; ?>" />
-                                    <figcaption class="figure__caption">
-                                        <?php the_title(); ?>
-                                    </figcaption>
-                                </figure>
-                            <?php endif; ?>
+                            <figure class="figure">
+                                <img class="figure__img figure__img--hover" src="<?php echo $cover; ?>" />
+                                <figcaption class="figure__caption">
+                                    <?php the_title(); ?>
+                                </figcaption>
+                            </figure>
                         </div>
                         <div>
                             <h4 class="popup__heading book__popup__heading book__text">
@@ -165,7 +163,7 @@ while (have_posts()) :
                         </div>
                     </div>
                     <a class="popup__close" id="popup-closer">&times;</a>
-                </div>
+                </dialog>
             </section>
         <?php endif; ?>
     </main>

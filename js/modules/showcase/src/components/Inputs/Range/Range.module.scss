@@ -1,0 +1,12 @@
+.controlGroup {
+    display: flex;
+    align-items: center;
+
+    input[type=number] {
+        margin: 0 1rem;
+        max-width: 8rem;
+    }
+    input[type=range] {
+        max-width: 8rem;
+    }
+}

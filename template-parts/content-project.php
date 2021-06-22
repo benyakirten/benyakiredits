@@ -38,12 +38,17 @@
             </h3>
         </div>
         <div class="portfolio__card__links">
-            <a href="<?php echo get_field('repo_link'); ?>">
-                <button class="btn btn--dark portfolio__card__btn portfolio__card__links__other-btn">
-                    Github Repo
-                </button>
-            </a>
             <?php
+                $repo_link = get_field('repo_link');
+                if ($repo_link):
+            ?>
+                <a href="<?php echo get_field('repo_link'); ?>">
+                    <button class="btn btn--dark portfolio__card__btn portfolio__card__links__other-btn">
+                        Github Repo
+                    </button>
+                </a>
+            <?php
+                endif;
                 $main_link = get_field('main_link');
                 if ($main_link):
             ?>

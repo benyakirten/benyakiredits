@@ -55,6 +55,25 @@
     }
 }
 
+@mixin invert-colors-on-hover($color-primary: $color-brown, $color-alternate: $color-gray) {
+    color: $color-primary;
+    background-color: $color-alternate;
+    
+    transition: $transition-fast;
+    &:hover {
+        color: $color-alternate;
+        background-color: $color-primary;
+    }
+}
+
+@mixin hover-darken {
+    opacity: 0.8;
+    transition: $transition-normal;
+    &:hover {
+        opacity: 1;
+    }
+}
+
 // Element has an ::after pseudo element that, on hover, will shoot out and dissipate
 @mixin flash-out {
     // Position must be relative so that the after element can be positioned

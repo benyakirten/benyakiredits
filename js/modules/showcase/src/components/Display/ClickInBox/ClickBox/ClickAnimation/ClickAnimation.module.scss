@@ -1,0 +1,6 @@
+.anim {
+    position: absolute;
+    z-index: 0; // Does not need to be specified
+    opacity: 0;
+    transform: scale(0);
+}

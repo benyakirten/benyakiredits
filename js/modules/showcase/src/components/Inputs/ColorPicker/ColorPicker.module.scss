@@ -1,0 +1,12 @@
+.controlGroup {
+    display: flex;
+    align-items: center;
+    
+    input[type=text] {
+        margin-left: 1rem;
+        max-width: 12rem;
+    }
+    input[type=color] {
+        margin-left: 1rem;
+    }
+}

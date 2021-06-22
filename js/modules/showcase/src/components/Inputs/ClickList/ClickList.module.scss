@@ -1,0 +1,32 @@
+@import '../../../styles/globals.scss';
+
+.list {
+    overflow: auto;
+
+    li {
+        position: relative;
+
+        margin: 2rem 1rem;
+        padding: 0 1.5rem;
+
+        background-color: $color-white;
+        outline: 3px solid $color-gray-medium;
+        
+        text-align: center;
+        color: $color-other-dark;
+
+        cursor: pointer;
+        @include hover-darken;
+
+        &::before {
+            position: absolute;
+            left: 0.5rem;
+            content: "\276F";
+        }
+        &::after {
+            position: absolute;
+            right: 0.5rem;
+            content: "\276E";
+        }
+    }
+}

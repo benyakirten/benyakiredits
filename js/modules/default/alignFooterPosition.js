@@ -16,5 +16,9 @@ const alignFooterPosition = () => {
     else if (footer.classList.contains("cling-to-bottom")) footer.classList.remove("cling-to-bottom");
 }
 
-alignFooterPosition();
-window.addEventListener("resize", alignFooterPosition);
+if (page_info.is_showcase) {
+   document.querySelector(".footer").classList.remove("cling-to-bottom");
+} else {
+    alignFooterPosition();
+    window.addEventListener("resize", alignFooterPosition);
+}

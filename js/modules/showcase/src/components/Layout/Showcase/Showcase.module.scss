@@ -1,0 +1,60 @@
+@import '../../../styles/globals.scss';
+
+.empty {
+    margin: 20rem auto;
+    padding: 2rem;
+    width: 60%;
+
+    text-align: center;
+    border-radius: $border-radius-slight;
+    box-shadow: $shadow-small;
+
+    transition: transform 0.4s ease;
+
+    &:hover {
+        animation: funkiness 5s infinite ease;
+    }
+}
+
+@keyframes funkiness {
+    20% {
+        transform: scale(1.2);
+    }
+    40% {
+        transform: scale(1.4);
+    }
+    45% {
+        transform: scale(1);
+    }
+    50% {
+        transform: skewX(45deg);
+    }
+    53% {
+        transform: skewX(-45deg);
+    }
+    56% {
+        transform: skewX(0);
+    }
+    60% {
+        transform: rotate(15deg);
+    }
+    80% {
+        transform: rotate(-15deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.component {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: fade-slide-in 2s ease forwards;
+}
+
+@keyframes fade-slide-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

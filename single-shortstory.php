@@ -27,7 +27,7 @@ while (have_posts()):
             ?>
                 <div class="linkbox__child-box">
                     <span class="linkbox__child-box__link">
-                        Alternate Links &#9660;
+                        Alternate Links
                     </span>
                     <ul class="linkbox__child-box__list">
                         <?php foreach($alternate_links_length as $index): ?>
@@ -46,14 +46,14 @@ while (have_posts()):
                 </div>
             <?php endif; ?>
         </aside>
-        <h2 class="generic-container__title heading-title">
+        <h1 class="generic-container__title heading-title">
             <span class="squeeze-together"><?php the_title(); ?></span>
             <?php if ($related_book): ?>
                 <div class="generic-container__subtitle">
                     <?php echo $relationship_to_book . ' to ' . $related_book->post_title; ?>
                 </div>
             <?php endif; ?>
-        </h2>
+        </h1>
         <p class="generic-content__content">
             <?php the_content(); ?>
         </p>

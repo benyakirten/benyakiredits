@@ -1,0 +1,52 @@
+@import '../../../styles/globals.scss';
+
+// CONTAINER
+// TOP    - CONTENT | CONTROLS
+// BOTTOM - >>>DESCRIPTION<<<
+.container {
+    position: relative;
+    z-index: 0;
+    
+    display: flex;
+    flex-direction: column;
+
+    width: 95%;
+    margin: 10rem auto;
+
+    border-radius: $border-radius-slight;
+    background-color: $color-brown;
+    box-shadow: $shadow-normal;
+}
+
+// TOP BAR
+.top {
+    height: 40rem;
+    display: flex;
+    @include respond(tab-port) {
+        height: inherit;
+        flex-direction: column;
+    }
+}
+
+// LEFT: ITEM
+.content {
+    flex: 2;
+    @include respond(tab-port) {
+        max-height: 35rem;
+    }
+}
+// RIGHT: CONTROLS
+.controls {
+    flex: 1;
+    background-color: $color-gray-light-1;
+
+    @include respond(tab-port) {
+        padding-bottom: 2rem;
+    }
+}
+
+// BOTTOM BAR
+.bottom {
+    background-color: $color-black;
+    color: $color-white;
+}

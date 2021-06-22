@@ -48,10 +48,10 @@
             flex-wrap: wrap;
     
             .menu-item {
+                @include invert-colors-on-hover($color-gray, $color-brown);
+
                 text-decoration: none;
                 padding: 0 2rem;
-                color: $color-gray;
-                transition: $transition-fast;
         
                 display: flex;
                 align-items: center;
@@ -61,8 +61,6 @@
                 }
 
                 &:hover {
-                    color: $color-brown;
-                    background-color: $color-gray;
                     animation: stretch-out 3s forwards ease-in-out;
                 }
             }

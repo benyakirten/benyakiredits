@@ -3,9 +3,9 @@
     while(have_posts()):
         the_post(); ?>
     <main class="generic-container">
-        <h2 class="generic-container__title heading-title">
+        <h1 class="generic-container__title heading-title">
             <?php the_title(); ?>
-        </h2>
+        </h1>
         <div class="generic-container__content">
             <?php the_content(); ?>
         </div>

@@ -1,0 +1,44 @@
+@import '../../../styles/globals.scss';
+
+.background {
+    // This is necessary so the hover modal
+    // can have a higher z index than others
+    position: relative;
+    z-index: 1;
+
+    background: linear-gradient(
+        90deg,
+        rgba($color-forest, 0.8) 20%,
+        rgba($color-blue-dark, 1) 40%,
+        rgba($color-brown, 0.8) 60%,
+        rgba($color-blue-dark, 1) 80%,
+        rgba($color-forest, 0.8) 100%,
+    );
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: auto 100%;
+    animation: flowing-background 40s linear infinite;
+
+    width: 70%;
+    margin: 0 auto;
+    border-radius: $border-radius-slight;
+
+    transition: transform .6s, width 0.8s ease, filter 1s;
+    &:hover {
+        width: 100%;
+        filter: saturate(20%);
+    }
+}
+
+.link {
+    text-decoration: underline !important;
+}
+
+@keyframes flowing-background {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 1000rem 0;
+    }
+}

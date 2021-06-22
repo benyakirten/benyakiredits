@@ -19,9 +19,10 @@ const showPopup = () => {
     // STYLES
     popup.style.opacity = 1;
     popup.style.visibility = 'visible';
-
+    
     popup.firstElementChild.style.opacity = 1;
     popup.firstElementChild.style.transform = 'translate(-50%, -50%) scale(1)';
+    popup.firstElementChild.setAttribute('open', true);
 }
 
 // FUNCTION to close popup
@@ -36,6 +37,7 @@ const hidePopup = () => {
 
     popup.firstElementChild.style.opacity = 0;
     popup.firstElementChild.style.transform = 'translate(-50%, -50%) scale(0.2)';
+    popup.firstElementChild.setAttribute('open', false);
 }
 
 // This will be false only
