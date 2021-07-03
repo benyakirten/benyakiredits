@@ -1,50 +1,28 @@
-import React, { createContext, useState } from "react";
+import React, { createContext } from "react";
+
+import useRange from "@Hooks/useRange";
+import useColor from "@Hooks/useColor";
+import useToggle from "@Hooks/useToggle";
 
 import defaultState from "./defaultState";
 import {
     CANVAS_CONCENTRIC_CIRCLES,
     CANVAS_START_RADIUS,
     CANVAS_RADIUS_DELTA,
-} from "@Data/constants";
-import { rangeToCallback } from "@Util/range";
+} from "@ShowcaseConstants/concentricCircles";
 
 const ConcentricCirclesContext = createContext(defaultState);
 
-export const ConcentricCirclesContextProvider: React.FC = ({ children }) => {
-    const [numberOfCircles, setCanvasNumberOfCircles] = useState<number>(defaultState.numberOfCircles);
-    const setNumberOfCircles = (num: number) => {
-        rangeToCallback(num, CANVAS_CONCENTRIC_CIRCLES, setCanvasNumberOfCircles);
-    }
+export const ConcentricCirclesContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
+    const [numberOfCircles, setNumberOfCircles] = useRange(defaultState.numberOfCircles, CANVAS_CONCENTRIC_CIRCLES);
+    const [startRadius, setStartRadius] = useRange(defaultState.startRadius, CANVAS_START_RADIUS);
+    const [radiusDelta, setRadiusDelta] = useRange(defaultState.radiusDelta, CANVAS_RADIUS_DELTA);
 
-    const [startRadius, setCanvasStartRadius] = useState<number>(defaultState.startRadius);
-    const setStartRadius = (radius: number) => {
-        rangeToCallback(radius, CANVAS_START_RADIUS, setCanvasStartRadius);
-    }
+    const [startingColor, setStartingColor] = useColor(defaultState.startingColor);
+    const [endingColor, setEndingColor] = useColor(defaultState.endingColor);
+    const [backgroundColor, setBackgroundColor] = useColor(defaultState.backgroundColor);
 
-    const [radiusDelta, setCanvasRadiusDelta] = useState<number>(defaultState.radiusDelta);
-    const setRadiusDelta = (radius: number) => {
-        rangeToCallback(radius, CANVAS_RADIUS_DELTA, setCanvasRadiusDelta);
-    }
-
-    const [startingColor, setCanvasStartingColor] = useState<string>(defaultState.startingColor);
-    const setStartingColor = (color: string) => {
-        if (/^#(?:[0-9A-F]{3}|[0-9A-F]{6})$/i.test(color)) setCanvasStartingColor(color);
-    }
-
-    const [endingColor, setCanvasEndingColor] = useState<string>(defaultState.endingColor);
-    const setEndingColor = (color: string) => {
-        if (/^#(?:[0-9A-F]{3}|[0-9A-F]{6})$/i.test(color)) setCanvasEndingColor(color);
-    }
-
-    const [backgroundColor, setCanvasBackgroundColor] = useState<string>(defaultState.backgroundColor);
-    const setBackgroundColor = (color: string) => {
-        if (/^#(?:[0-9A-F]{3}|[0-9A-F]{6})$/i.test(color)) setCanvasBackgroundColor(color);
-    }
-
-    const [colorRandomization, setCanvasColorRandomization] = useState<boolean>(defaultState.colorRandomization);
-    const toggleColorRandomization = () => setCanvasColorRandomization(prevValue => !prevValue);
-
-
+    const [colorRandomization, toggleColorRandomization] = useToggle(defaultState.colorRandomization);
 
     const value: ConcentricCirclesState = {
         numberOfCircles,

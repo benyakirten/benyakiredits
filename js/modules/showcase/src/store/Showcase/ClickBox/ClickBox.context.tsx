@@ -1,41 +1,59 @@
 import React, { createContext, useState } from "react";
 
+import useRange from "@Hooks/useRange";
+import useColor from "@Hooks/useColor";
+import useToggle from "@Hooks/useToggle";
+
 import defaultState from "./defaultState";
-import { CLICK_BOX_LENGTH, CLICK_BOX_SIZE, OPACITY_RANGE } from "@Data/constants";
-import { rangeToCallback } from "@Util/range";
+import shapes from "@Data/shapes";
+
+import { OPACITY_RANGE, NAMED_COLOR_TO_HEXES } from "@Data/constants/general";
+import { CLICK_BOX_LENGTH, CLICK_BOX_SIZE } from "@ShowcaseConstants/clickBox";
+
+import { getRandomFromRange, getRandomItem } from "@Util/random";
+import { isDark } from "@Util/colors";
 
 const ClickBoxContext = createContext(defaultState);
 
-export const ClickBoxContentProvider: React.FC = ({ children }) => {
+export const ClickBoxContentProvider: React.FC<ContextProviderProps> = ({
+    children,
+}) => {
     const [shape, setShape] = useState<AnimationShape>(defaultState.shape);
 
-    const [animationColor, setClickColor] = useState<string>(defaultState.animationColor);
-    const setAnimationColor = (val: string) => {
-        if (/^#(?:[0-9A-F]{3}|[0-9A-F]{6})$/i.test(val)) setClickColor(val);
+    const [animationColor, setAnimationColor] = useColor(defaultState.animationColor);
+    const [backgroundColor, setBackgroundColor] = useColor(defaultState.backgroundColor);
+
+    const [length, setLength] = useRange(defaultState.length, CLICK_BOX_LENGTH);
+    const [size, setSize] = useRange(defaultState.size, CLICK_BOX_SIZE);
+    const [parentOpacity, setParentOpacity] = useRange(defaultState.parentOpacity, OPACITY_RANGE);
+
+    const [expand, toggleExpand] = useToggle(defaultState.expand);
+    const [randomization, toggleRandomization] = useToggle(defaultState.randomization);
+
+    const randomizeAnimation = () => {
+        const allHexColors: Array<string> = Object.values(NAMED_COLOR_TO_HEXES);
+        const animColor = getRandomItem(allHexColors);
+        setAnimationColor(animColor);
+
+        // Make sure background color contrasts with the animation color
+        setBackgroundColor(isDark(animColor) ? "#ffffff" : "#000000");
+
+        // No need to randomize the shape if it's set on randomize already
+        if (shape !== "random") {
+            const possibleShapes = Object.keys(shapes).filter(
+                (s) => s !== "random"
+            );
+            const randomShape = getRandomItem(possibleShapes) as keyof IShape;
+            setShape(randomShape);
+        }
+        if (Math.random() > 0.5) toggleExpand();
+
+        // This 'randomization' isn't true randomziation because the really random values are
+        // fairly unpleasant. Therefore there are minimums to allow QOL
+        setLength(getRandomFromRange({ ...CLICK_BOX_LENGTH, min: 500 }));
+        setSize(getRandomFromRange({ ...CLICK_BOX_SIZE, min: 200 }));
+        setParentOpacity(getRandomFromRange({ ...OPACITY_RANGE, min: 0.5 }));
     };
-
-    const [backgroundColor, setContainerColor] = useState<string>(defaultState.backgroundColor);
-    const setBackgroundColor = (val: string) => {
-        if (/^#(?:[0-9A-F]{3}|[0-9A-F]{6})$/i.test(val)) setContainerColor(val);
-    };
-
-    const [length, setAnimationLength] = useState<number>(defaultState.length);
-    const setLength = (val: number) => {
-        rangeToCallback(val, CLICK_BOX_LENGTH, setAnimationLength);
-    };
-
-    const [expand, setAnimationExpand] = useState<boolean>(defaultState.expand);
-    const toggleExpand = () => setAnimationExpand(prevValue => !prevValue);
-
-    const [size, setAnimationSize] = useState<number>(defaultState.size);
-    const setSize = (val: number) => {
-        rangeToCallback(val, CLICK_BOX_SIZE, setAnimationSize);
-    }
-
-    const [parentOpacity, setAnimationParentOpacity] = useState<number>(defaultState.parentOpacity);
-    const setParentOpacity = (ratio: number) => {
-        rangeToCallback(ratio, OPACITY_RANGE, setAnimationParentOpacity);
-    }
 
     const value: ClickBoxState = {
         shape,
@@ -51,7 +69,10 @@ export const ClickBoxContentProvider: React.FC = ({ children }) => {
         size,
         setSize,
         parentOpacity,
-        setParentOpacity
+        setParentOpacity,
+        randomization,
+        toggleRandomization,
+        randomizeAnimation,
     };
     return (
         <ClickBoxContext.Provider value={value}>

@@ -61,6 +61,9 @@ const Range: React.FC<IRangeProps> = ({
                 aria-valuemin={min}
                 aria-valuemax={max}
                 value={value}
+                step={step}
+                max={max}
+                min={min}
                 onChange={(e) => verifyValue(+e.target.value)}
                 onKeyDown={handleAriaKeyboardInput}
                 name={name + "-number"}

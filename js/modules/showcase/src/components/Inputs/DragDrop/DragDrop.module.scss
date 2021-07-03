@@ -1,0 +1,51 @@
+@import '@GlobalScss';
+
+.container {
+    width: 100%;
+    margin: 2rem 0;
+
+    display: flex;
+    justify-content: space-around;
+
+    div {
+        outline: 1px solid $color-blue-dark;
+        box-shadow: $shadow-small;
+
+        h3 {
+            padding: 0 1rem;
+            font-size: $font-size-medium;
+            &:hover {
+                transform: scale(1);
+            }
+        }
+        ul {
+            margin-bottom: 0;
+            li {
+                padding: 0 1rem;
+                border: 1px solid $color-black;
+                box-shadow: $shadow-xs;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.hovered {
+    background-color: rgba($color-forest, 0.4);
+    animation: tilt 2s infinite linear;
+}
+
+@keyframes tilt {
+    0% {
+        transform: skew(0);
+    }
+    25% {
+        transform: skew(-1deg);
+    }
+    50% {
+        transform: skew(1deg);
+    }
+    75% {
+        transform: skew(0);
+    }
+}

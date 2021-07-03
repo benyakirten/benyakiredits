@@ -1,7 +1,8 @@
 import React, { createRef, useContext, useState, useEffect } from "react";
 
 import classes from "./ConcentricCirclesCanvas.module.scss";
-import { NAMED_COLOR_TO_HEXES } from "@Data/constants";
+
+import { NAMED_COLOR_TO_HEXES } from "@Constants/general";
 import { getRandomValueFromObject } from "@Util/random";
 import {
     getAbsoluteCorners,
@@ -12,7 +13,7 @@ import {
 } from "@Util/canvas";
 import { hexForIteration } from "@Util/colors";
 
-import ConcentricCirclesContext from "@Store/Showcase/ConcentricCircles/ConcentricCircles.context";
+import ConcentricCirclesContext from "@ConcentricCirclesContext";
 
 const ConcentricCirclesCanvas: React.FC = () => {
     const canvasRef = createRef<HTMLCanvasElement>();

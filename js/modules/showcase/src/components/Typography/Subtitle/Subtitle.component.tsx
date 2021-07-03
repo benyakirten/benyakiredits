@@ -1,5 +1,4 @@
 import React from "react";
-
 import classes from "./Subtitle.module.scss";
 
 const Subtitle: React.FC<SubtitleProps> = ({ children, theme }) => {

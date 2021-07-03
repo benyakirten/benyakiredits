@@ -4,13 +4,13 @@ import {
     CANVAS_CONCENTRIC_CIRCLES,
     CANVAS_START_RADIUS,
     CANVAS_RADIUS_DELTA,
-} from "@Data/constants";
-import ConcentricCirclesContext from "@Store/Showcase/ConcentricCircles/ConcentricCircles.context";
+} from "@ShowcaseConstants/concentricCircles";
+import ConcentricCirclesContext from "@ConcentricCirclesContext";
 
-import Subtitle from "@Comp/Typography/Subtitle/Subtitle.component";
-import ColorPicker from "@Comp/Inputs/ColorPicker/ColorPicker.component";
-import Range from "@Comp/Inputs/Range/Range.component";
-import Checkbox from "@Comp/Inputs/Checkbox/Checkbox.component";
+import Subtitle from "@Type/Subtitle/Subtitle.component";
+import ColorPicker from "@Inputs/ColorPicker/ColorPicker.component";
+import Range from "@Inputs/Range/Range.component";
+import Checkbox from "@Inputs/Checkbox/Checkbox.component";
 
 const ConcentricCirclesControls: React.FC = () => {
     const concentricCirclesCtx = useContext(ConcentricCirclesContext);

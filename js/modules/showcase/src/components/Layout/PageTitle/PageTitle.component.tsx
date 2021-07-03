@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import classes from './PageTitle.module.scss';
 
-import Title from '../../Typography/Title/Title.component';
-import HoverModal from '../../General/HoverModal/HoverModal.component';
+import Title from '@Type/Title/Title.component';
+import HoverModal from '@Gen/HoverModal/HoverModal.component';
 
 const PageTitle: React.FC = () => {
     return (

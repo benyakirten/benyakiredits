@@ -1,7 +1,8 @@
 export const rangeToCallback = (val: number, rangeValues: RangeValues, callback: Function) => {
     if (val >= rangeValues.max) callback(rangeValues.max);
     else if (val <= rangeValues.min) callback(rangeValues.min);
-    else if (val % rangeValues.step < 0.01) callback(val);
+    // JS Modulo doesn't handle values < 1 very well
+    else if (val % rangeValues.step < 0.001) callback(val);
 }
 
 export const betweenMinAndMax = (constants: RangeValues, val: number) => {

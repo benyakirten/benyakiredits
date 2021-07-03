@@ -7,7 +7,7 @@ const Description: React.FC<DescriptionProps> = ({
 }) => {
     return (
         <aside className={classes.aside}>
-            <div>{description}</div>
+            <div className={classes.description}>{description}</div>
             <div className={classes.search}>Search tags: {meta.join(", ")}</div>
         </aside>
     );

@@ -1,0 +1,11 @@
+@import '@GlobalScss';
+
+.box {
+    overflow: hidden;
+    border-radius: $border-radius-slight;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}

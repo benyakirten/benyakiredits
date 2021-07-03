@@ -1,8 +1,8 @@
 import React, { useContext, lazy, Suspense } from "react";
 
 import classes from "./Showcase.module.scss";
-import OptionsContext from "../../../store/Options/Options.context";
-import Loading from "../../General/Loading/Loading.component";
+import OptionsContext from "@Options";
+import Loading from "@Gen/Loading/Loading.component";
 
 // Apparently this doesn't work with webpack - how I wish it did
 // import showcaseList from '../../../data/showcaseList';
@@ -12,11 +12,15 @@ import Loading from "../../General/Loading/Loading.component";
 // }
 
 const ClickInBox = lazy(
-    () => import("../../Display/ClickInBox/ClickInBox.component")
+    () => import("@Disp/ClickInBox/ClickInBox.component")
 );
 const ConcentricCircles = lazy(
-    () => import("../../Display/ConcentricCircles/ConcentricCircles.component")
+    () => import("@Disp/ConcentricCircles/ConcentricCircles.component")
 );
+
+const ColorBoxes = lazy(() => import("@Disp/ColorBoxes/ColorBoxes.component"));
+
+const FilterGenerator = lazy(() => import ("@Disp/FilterGenerator/FilterGenerator.component"));
 
 const Showcase: React.FC = () => {
     const optionsCtx = useContext<OptionsState>(OptionsContext);
@@ -28,6 +32,12 @@ const Showcase: React.FC = () => {
             break;
         case "sh2":
             OtherComponent = ConcentricCircles;
+            break;
+        case "sh3":
+            OtherComponent = ColorBoxes;
+            break;
+        case "sh4":
+            OtherComponent = FilterGenerator;
             break;
         default:
             break;

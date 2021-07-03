@@ -26,6 +26,7 @@ I wrote most of the comments in a few hours and am too lazy to make them better/
 PLANNED CHANGES
 - Create a template part for the linkbox. Unfortunately, there are a wide varities of ways the linkbox is handled, so it may require something more complicated.
 - Add custom gutenberg blocks as plugins (will be separate github projects).
+- Update the pictures for this portion
 
 CHANGELOG
 - 3/13/2021: Put single line statements into single line instead of spreading across multiple lines. Added some redundancies to help with Bluehost differences between it and local environment. Fixed custom field variable reading in template-parts/content-book.php
@@ -37,3 +38,4 @@ CHANGELOG
 - 5/21/2021: Made github repos no longer obligatory for projects. Changed the padding on the header navigation items.
 - 5/22/2021: Thanks to a great suggestion by my friend Matt, I've added an enlarged book cover to the popup about the cover designer.
 - 6/22/2021: Finally, I added the showcase section to the website. It was a lot more work to set it up than I'd anticipated, but now that it's been done, future additions shouldn't be too difficult. Oh, yeah, some formatting too.
+- 7/3/2021: Added two new widgets. It also gave me a time to reinforce a bunch of infrastructure for the React page.

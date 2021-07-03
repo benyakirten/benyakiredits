@@ -7,20 +7,6 @@ type TransitionStyle = {
     default: { [key: string]: string | number };
 }
 
-type AnimationShape = keyof IShape;
-
-interface IShape {
-    'square'    : string;
-    'star'      : string;
-    'cross'     : string;
-    'rhombus'   : string;
-    'frame'     : string;
-    'arrow'     : string;
-    'trapezoid' : string;
-    'circle'    : string;
-    'random'    : string;
-}
-
 type ShowcaseItem = {
     path: string;
     id: string;

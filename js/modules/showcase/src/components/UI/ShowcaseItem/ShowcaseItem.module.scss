@@ -1,4 +1,4 @@
-@import '../../../styles/globals.scss';
+@import '@GlobalScss';
 
 // CONTAINER
 // TOP    - CONTENT | CONTROLS
@@ -11,7 +11,8 @@
     flex-direction: column;
 
     width: 95%;
-    margin: 10rem auto;
+    height: 80rem;
+    margin: 14rem auto;
 
     border-radius: $border-radius-slight;
     background-color: $color-brown;
@@ -20,12 +21,17 @@
 
 // TOP BAR
 .top {
+    flex: 1;
     height: 40rem;
     display: flex;
     @include respond(tab-port) {
         height: inherit;
         flex-direction: column;
     }
+}
+
+.bottom {
+    flex: 1;
 }
 
 // LEFT: ITEM
@@ -39,6 +45,8 @@
 .controls {
     flex: 1;
     background-color: $color-gray-light-1;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     @include respond(tab-port) {
         padding-bottom: 2rem;

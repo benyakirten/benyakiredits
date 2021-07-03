@@ -2,11 +2,11 @@ import React, { useContext, useState, useEffect } from "react";
 
 import classes from "./Sidebar.module.scss";
 import showcaseList from "@Data/showcaseList";
-import OptionsContext from "@Store/Options/Options.context";
+import OptionsContext from "@Options";
 
-import Checkbox from "@Comp/Inputs/Checkbox/Checkbox.component";
-import TextInput from "@Comp/Inputs/TextInput/TextInput.component";
-import ClickList from "@Comp/Inputs/ClickList/ClickList.component";
+import Checkbox from "@Inputs/Checkbox/Checkbox.component";
+import TextInput from "@Inputs/TextInput/TextInput.component";
+import ClickList from "@Inputs/ClickList/ClickList.component";
 import Subtitle from '@Type/Subtitle/Subtitle.component';
 
 const Sidebar: React.FC<SidebarProps> = ({ onExit }) => {

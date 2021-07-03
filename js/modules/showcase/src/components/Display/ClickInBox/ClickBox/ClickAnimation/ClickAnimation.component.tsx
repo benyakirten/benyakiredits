@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import classes from './ClickAnimation.module.scss';
+
 import shapes from '@Data/shapes';
 import { getRandomValueFromObject } from '@Util/random';
 
-import ClickBoxContext from '@Store/Showcase/ClickBox/ClickBox.context';
+import ClickBoxContext from '@ClickBoxContext';
 
 const ClickAnimation: React.FC<Coords> = ({ x, y }) => {
     const clickBoxCtx = useContext(ClickBoxContext);

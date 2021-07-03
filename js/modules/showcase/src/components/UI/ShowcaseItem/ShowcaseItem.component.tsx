@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import classes from "./ShowcaseItem.module.scss";
-import OptionsContext from "@Store/Options/Options.context";
+import OptionsContext from "@Options";
 
 const ShowcaseItem: React.FC<ShowcaseItemProps> = ({
     children,

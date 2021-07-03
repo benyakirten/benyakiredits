@@ -1,15 +1,18 @@
-type StringChild = {
-    children: string;
-};
-
-type ElementChild = {
-    children: JSX.Element | React.FC;
+type ColorTheme = {
+    theme?: 'dark' | 'light';
 }
 
-type GenericChild = {
-    children: string | JSX.Element;
+type HoverModalProps = GenericChild & ColorTheme & {
+    direction?: 'left' | 'right';
 }
 
-type OnClickChild = {
-    onClick: () => void
-};
+type ColorBoxProps = {
+    width: number;
+    height: number;
+    color: string;
+    text?: string;
+}
+
+type ListProps = {
+    title: string;
+}

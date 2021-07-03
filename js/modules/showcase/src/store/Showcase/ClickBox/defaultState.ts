@@ -11,8 +11,11 @@ const defaultState: ClickBoxState = {
     toggleExpand: () => {},
     size: 200,
     setSize: (_: number) => {},
-    parentOpacity: 0.8,
-    setParentOpacity: (_: number) => {}
+    parentOpacity: 80,
+    setParentOpacity: (_: number) => {},
+    randomization: false,
+    toggleRandomization: () => {},
+    randomizeAnimation: () => {}
 }
 
 export default defaultState;

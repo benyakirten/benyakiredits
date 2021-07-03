@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 
-import ClickBoxContext from "@Store/Showcase/ClickBox/ClickBox.context";
-import { CLICK_BOX_LENGTH, CLICK_BOX_SIZE, OPACITY_RANGE } from "@Data/constants";
+import ClickBoxContext from "@ClickBoxContext";
+
+import { OPACITY_RANGE } from "@Constants/general";
+import { CLICK_BOX_LENGTH, CLICK_BOX_SIZE } from "@ShowcaseConstants/clickBox";
 import { shapeAsOptions } from "@Data/shapes";
 
 import Subtitle from "@Type/Subtitle/Subtitle.component";
-import Select from "@Comp/Inputs/Select/Select.component";
-import ColorPicker from "@Comp/Inputs/ColorPicker/ColorPicker.component";
-import Range from "@Comp/Inputs/Range/Range.component";
-import Checkbox from "@Comp/Inputs/Checkbox/Checkbox.component";
+import Select from "@Inputs/Select/Select.component";
+import ColorPicker from "@Inputs/ColorPicker/ColorPicker.component";
+import Range from "@Inputs/Range/Range.component";
+import Checkbox from "@Inputs/Checkbox/Checkbox.component";
 
 const Controls: React.FC = () => {
     const clickBoxCtx = useContext(ClickBoxContext);
@@ -53,13 +55,19 @@ const Controls: React.FC = () => {
                 name="parent-opacity"
                 value={clickBoxCtx.parentOpacity}
                 handleRangeChange={clickBoxCtx.setParentOpacity}
-                labelText="Parent Opacity:"
+                labelText="Parent Opacity(%):"
             />
             <Checkbox
                 value={clickBoxCtx.expand}
                 handleToggle={clickBoxCtx.toggleExpand}
                 name="animation-expand"
                 labelText="Animation Expands Out:"
+            />
+            <Checkbox
+                value={clickBoxCtx.randomization}
+                handleToggle={clickBoxCtx.toggleRandomization}
+                name="animation-randomization"
+                labelText="Randomize Animation On Click:"
             />
         </aside>
     );

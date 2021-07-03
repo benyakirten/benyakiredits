@@ -1,4 +1,4 @@
-@import '../../../styles/globals.scss';
+@import "@GlobalScss";
 
 .list {
     overflow: auto;
@@ -11,12 +11,14 @@
 
         background-color: $color-white;
         outline: 3px solid $color-gray-medium;
-        
+
         text-align: center;
         color: $color-other-dark;
 
         cursor: pointer;
         @include hover-darken;
+
+        animation: fade-float-in 1s forwards;
 
         &::before {
             position: absolute;
@@ -28,5 +30,16 @@
             right: 0.5rem;
             content: "\276E";
         }
+    }
+}
+
+@keyframes fade-float-in {
+    from {
+        transform: translateX(-15rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }

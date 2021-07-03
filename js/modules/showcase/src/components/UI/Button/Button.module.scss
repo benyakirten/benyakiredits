@@ -1,0 +1,25 @@
+@import '@GlobalScss';
+
+.button {
+    outline: 1px solid $color-forest;
+    background-color: $color-blue-light;
+
+    padding: 1rem 2rem;
+
+    font-size: $font-size-small;
+    letter-spacing: 1px;
+
+    transition: transform 0.4s;
+
+    &:hover {
+        box-shadow: $shadow-xs;
+        transform: translateY(-3px);
+        background-color: $color-blue-light;
+    }
+
+    &:active {
+        box-shadow: $shadow-xs;
+        transform: translateY(-1px);
+        color: inherit;
+    }
+}

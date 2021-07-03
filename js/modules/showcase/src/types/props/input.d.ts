@@ -13,6 +13,7 @@ interface LabelProps {
 interface IBaseInput {
     name: string;
     labelText: string;
+    additionalText?: string;
 }
 
 interface ICheckboxProps extends IBaseInput {
@@ -44,5 +45,20 @@ interface IColorPickerProps extends IBaseInput {
 interface IRangeProps extends IBaseInput {
     rangeConsts: RangeValues;
     value: number;
+    additionalText?: string;
     handleRangeChange: (n: number) => void;
+}
+
+type DragDropItem = {
+    value: string;
+    id: string;
+}
+
+type DragDropProps = {
+    name: string;
+    leftList: Array<DragDropItem>;
+    leftTitle: string;
+    rightList: Array<DragDropItem>;
+    rightTitle: string;
+    handleChange: (e: string) => void;
 }

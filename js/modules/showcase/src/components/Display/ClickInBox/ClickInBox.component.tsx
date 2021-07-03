@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 
-import OptionsContext from "@Store/Options/Options.context";
-import { ClickBoxContentProvider } from "@Store/Showcase/ClickBox/ClickBox.context";
+import OptionsContext from "@Options";
+import { ClickBoxContentProvider } from "@ClickBoxContext";
 
 import ShowcaseItem from "@UI/ShowcaseItem/ShowcaseItem.component";
+import Description from "@UI/Description/Description.component";
 import ClickBox from "./ClickBox/ClickBox.component";
 import ClickBoxControls from "./ClickBoxControls/ClickBoxControls.component";
-import Description from "@Comp/UI/Description/Description.component";
 
 const ClickInBox: React.FC = () => {
     const optionsCtx = useContext(OptionsContext);
