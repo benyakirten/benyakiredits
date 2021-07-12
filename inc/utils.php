@@ -34,6 +34,8 @@ function get_full_technology($tech) {
             return "Machine Learning";
         case "svelte":
             return "Svelte";
+        case "gql":
+            return "GraphQL";
         default:
             return $tech;
     }
