@@ -4,3 +4,6 @@
 
 # Node
 node_modules/
+
+# Showcase - Separated into another git repo
+showcase/

@@ -18,9 +18,7 @@ while (have_posts()) :
                 $projects = new WP_Query(array(
                     'posts_per_page' => -1,
                     'post_type' => 'project',
-                    'meta_key' => 'latest_update',
-                    'orderby' => 'meta_value_num',
-                    'order' => 'ASC'
+                    'order' => 'DESC'
                 ));
                 // For each project: create a card
                 while ($projects->have_posts()):
