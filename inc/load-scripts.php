@@ -53,7 +53,7 @@
         // Though this is a CSS file, it is highly connected with the React files
         // This will error out if running in dev since the styles aren't in a separate CSS file
         // However, the styles are necessary for the production build
-        wp_enqueue_style('showcase-styles', get_theme_file_uri('js/modules/showcase/dist/index.css'));;
+        wp_enqueue_style('showcase-styles', get_theme_file_uri('js/modules/showcase/dist/index.css'));
     }
 
 }

@@ -36,6 +36,8 @@ function get_full_technology($tech) {
             return "Svelte";
         case "gql":
             return "GraphQL";
+        case "tw":
+            return "Tailwind CSS";
         default:
             return $tech;
     }
