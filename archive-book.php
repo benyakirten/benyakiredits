@@ -6,8 +6,8 @@ while (have_posts()) :
     <article class="generic-container">
         <?php
             // We need the published on date and to know if it was in the past
-            $today = date('mdY');
             $published_on = get_field('published_on');
+            $published_already = compare_formatted_date_strings(date('mdY'), $published_on);
 
             // To display an image of the book
             $cover = get_field('cover');
@@ -63,7 +63,7 @@ while (have_posts()) :
             </a>
             <div class="generic-container__subtitle">
                 <?php
-                    echo $published_on > $today
+                    echo $published_already
                         ? "Published " . $published_on . ". Available for purchase on"
                         : "Coming out " . $published_on . ". Available for preorder on";
 

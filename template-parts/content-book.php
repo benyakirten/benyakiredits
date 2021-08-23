@@ -10,9 +10,9 @@
     $link_urls = explode(', ', get_field('purchase_links'));
     $link_names = explode(', ', get_field('purchase_links_names'));
     $links_length = range(0, count($link_urls) - 1);
-    
-    $today = date('mdY');
+
     $published_on = get_field('published_on');
+    $published_already = compare_formatted_date_strings(date('mdY'), $published_on);
 ?>
 <div class="card author__book__card">
     <div class="card__side card__side--front author__book__card author__book__card--front">
@@ -31,7 +31,7 @@
         <?php endif; ?>
         <span class="author__book__card__released heading-card">
             <?php
-                echo $published_on > $today
+                echo $published_already
                     ? "Published " . $published_on
                     : "Coming out " . $published_on;
             ?>

@@ -26,6 +26,8 @@ function get_full_technology($tech) {
             return "Swift";
         case "react":
             return "React";
+        case "vue":
+            return "Vue";
         case "cs":
             return "C#";
         case "unity":
@@ -41,4 +43,17 @@ function get_full_technology($tech) {
         default:
             return $tech;
     }
+}
+
+function compare_formatted_date_strings($date1, $date2) {
+    return convert_formatted_date_string($date1) > convert_formatted_date_string($date2);
+}
+
+function convert_formatted_date_string($date) {
+    // If dates are formatted like 11/02/2000 then it'll become 11022000
+    $date_no_slashes = str_replace("/", "", $date);
+    // This will get the last 4 characters, e.g. 2000
+    $date_year = substr($date_no_slashes, 4);
+    // This will return the date formatted to be like this: 20001102
+    return $date_year . substr($date_no_slashes, 0, $date_strlen - 4);
 }

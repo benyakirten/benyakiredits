@@ -40,3 +40,4 @@ CHANGELOG
 * 6/22/2021: Finally, I added the showcase section to the website. It was a lot more work to set it up than I'd anticipated, but now that it's been done, future additions shouldn't be too difficult. Oh, yeah, some formatting too.
 * 7/3/2021: Added two new widgets. It also gave me a time to reinforce a bunch of infrastructure for the React page.
 * 8/18/2021: Added Tailwind CSS to technologies. Also added a react-routing.php file in inc. It doesn't work correctly.
+* 8/23/2021: Fixed date comparison for books, added two utils for that purpose.

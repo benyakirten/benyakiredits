@@ -1,7 +1,7 @@
 <?php get_header();
 // We want to get the date it was published on and if that was in the past or not
-$today = date('mdY');
 $published_on = get_field('published_on');
+$published_already = compare_formatted_date_strings(date('mdY'), $published_on);
 
 // Purchase links for where the book can be acquired
 $link_urls = explode(', ', get_field('purchase_links'));
@@ -66,7 +66,7 @@ while (have_posts()) :
         </div>
         <section class="book__purchase">
             <?php
-                echo $published_on > $today
+                echo $published_already
                     ? 'Published ' . $published_on . '. <div>Available for purchase on'
                     : 'Coming out ' . $published_on . '. <div>Available for preorder on';
             ?>

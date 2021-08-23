@@ -4,8 +4,8 @@
     $related_book = get_field('related_book');
     $image = get_theme_file_uri("images/Fallback-cover-no-text.svg");
 
-    $today = date('mdY');
     $published_on = get_field('published_on');
+    $published_already = compare_formatted_date_strings(date('mdY'), $published_on);
 ?>
 <div class="card author__shortstory__card">
     <div class="card__side card__side--front author__shortstory__card author__shortstory__card--front">
@@ -30,7 +30,7 @@
         </div>
         <span class="author__shortstory__card__released heading-card">
             <?php
-                echo $published_on > $today
+                echo $published_already
                     ? "Published " . $published_on
                     : "Coming out " . $published_on;
             ?>
