@@ -23,7 +23,11 @@ function custom_blog_types() {
         'publicly_queryable' => true,
         'show_in_rest' => true,
         'has_archive' => true,
-        'menu_icon' => 'dashicons-feedback'
+        'menu_icon' => 'dashicons-feedback',
+        'show_in_graphql' => true,
+        'hierarchical' => true,
+        'graphql_single_name' => 'project',
+        'graphql_plural_name' => 'projects',
     ));
 
     // SHORT STORY custom type: for author/writing
@@ -46,7 +50,11 @@ function custom_blog_types() {
         'publicly_queryable' => true,
         'show_in_rest' => true,
         'has_archive' => true,
-        'menu_icon' => 'dashicons-editor-spellcheck'
+        'menu_icon' => 'dashicons-editor-spellcheck',
+        'show_in_graphql' => true,
+        'hierarchical' => true,
+        'graphql_single_name' => 'shortstory',
+        'graphql_plural_name' => 'shortstories',
     ));
 
     // BOOK custom type: for author/writing
@@ -70,7 +78,11 @@ function custom_blog_types() {
         'publicly_queryable' => true,
         'show_in_rest' => true,
         'has_archive' => true,
-        'menu_icon' => 'dashicons-edit-large'
+        'menu_icon' => 'dashicons-edit-large',
+        'show_in_graphql' => true,
+        'hierarchical' => true,
+        'graphql_single_name' => 'book',
+        'graphql_plural_name' => 'books',
     ));
 }
 add_action('init', 'custom_blog_types');

@@ -41,3 +41,12 @@ CHANGELOG
 * 7/3/2021: Added two new widgets. It also gave me a time to reinforce a bunch of infrastructure for the React page.
 * 8/18/2021: Added Tailwind CSS to technologies. Also added a react-routing.php file in inc. It doesn't work correctly.
 * 8/23/2021: Fixed date comparison for books, added two utils for that purpose.
+* 8/29/2021: A variety of updates to allow GraphQL compatability. None of the following changes are necessary to the continuing functioning of the theme.
+> 1. Changed the license to GPL because WordPress themes/plugins need to have a GPL license
+> 2. Added GraphQL compatability to work with a Gatsby project I'm working on. Therefore, the following plugins were added: WP GraphQL, WP Gatsby, WPGraphQL for Advanced Custom Fields (not available on the registry, instead consult: https://github.com/wp-graphql/wp-graphql-acf)
+> 3. The MUPlugins were updated to be included in the GraphQL API. Therefore, I copied the new version into MUCopy.php. For all three custom post types, I added:
+>> * 'show_in_graphql' => true,
+>> * 'hierarchical' => true,
+>> * 'graphql_single_name' => 'project' (book/shortstory),
+>> * 'graphql_plural_name' => 'projects' (books/shortstories)
+> 4. To make the Advanced Custom Fields compliant with GraphQL, you have to enable Show in GraphQL in each field group.
