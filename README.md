@@ -49,4 +49,5 @@ CHANGELOG
 >> * 'hierarchical' => true,
 >> * 'graphql_single_name' => 'project' (book/shortstory),
 >> * 'graphql_plural_name' => 'projects' (books/shortstories)
-> 4. To make the Advanced Custom Fields compliant with GraphQL, you have to enable Show in GraphQL in each field group.
+> 4. To make the Advanced Custom Fields compliant with GraphQL, you have to enable Show in GraphQL in each field group. If you don't follow these steps, your custom post types and/or ACF won't show up. Yes, it's lame, but it's not my fault (entirely).
+* 1/15/2021: Added golang icon
