@@ -40,6 +40,8 @@ function get_full_technology($tech) {
             return "GraphQL";
         case "tw":
             return "Tailwind CSS";
+        case "go":
+            return "Golang";
         default:
             return $tech;
     }
