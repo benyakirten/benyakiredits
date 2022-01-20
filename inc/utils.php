@@ -42,6 +42,8 @@ function get_full_technology($tech) {
             return "Tailwind CSS";
         case "go":
             return "Golang";
+        case "ex":
+            return "Elixir";
         default:
             return $tech;
     }
