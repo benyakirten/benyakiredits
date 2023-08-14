@@ -44,6 +44,10 @@ function get_full_technology($tech) {
             return "Golang";
         case "ex":
             return "Elixir";
+        case "ws":
+            return "Web Sockets";
+        case "wip":
+            return "Under Construction";
         default:
             return $tech;
     }
